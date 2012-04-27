@@ -1,0 +1,32 @@
+/**************************************************
+  Coppermine 1.5.x Plugin - file_replacer
+  *************************************************
+  Copyright (c) 2010 Nibbler, eenemeenemuu
+  *************************************************
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or
+  (at your option) any later version.
+  ********************************************
+  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/branches/cpg1.5.x/plugins/file_replacer/change.log $
+  $Revision: 7803 $
+  $LastChangedBy: timoswelt $
+  $Date: 2010-07-31 18:58:20 +0200 (Sa, 31 Jul 2010) $
+  **************************************************/
+
+Changelog
+=========
+[A] = Added new feature
+[B] = Bugfix (fix something that wasn't working as expected)
+[C] = Cosmetical fix (layout, typo etc.)
+[D] = Documentation improvements
+[M] = Maintenance works
+[O] = Optimization of code
+[S] = Security fix (issues that are related to security)
+*********************************************
+
+2010-07-31 [B] Made it work with SEF_URL plugin {Timo}
+2010-07-08 [M] Added changelog (this file) {GauGau}
+2010-07-08 [M] Counted version number up to 1.6 {GauGau}
+2010-07-08 [M] Updated year in copyright header {GauGau}
+2010-07-08 [M] Packaged and released v1.5 of the plugin {GauGau}

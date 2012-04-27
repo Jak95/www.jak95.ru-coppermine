@@ -1,0 +1,10 @@
+1) Just copy the folder "images" in your root directory of forum 
+    (it will ask you to replace)
+
+2) Go to your ACP-->Posting-->Smilies
+
+   and click where it says "Install Smilies Package"!
+
+It will automatically find the "Install_Dark_01.pak" and you can just press "install smilies packages"
+
+That's it!!!Enjoy brand new top quality (dark background) matching smilies!!!!!

@@ -1,0 +1,11 @@
+1) Just copy the folder "images" in your root directory of forum 
+    (it will ask you to replace, in fact that's happend because it finds same directory-
+      it doesn't replace anything at all so don't be afraid of loosing your icons)
+
+2) Go to your ACP-->Posting-->Topic Icons 
+
+   and click where it says "Install Icons Package"!
+
+It will automatically find the "icons.pak" and you can just press "install icon packages"
+
+That's it!!!Enjoy brand new top quality (dark background) matching topic Icons!!!!!

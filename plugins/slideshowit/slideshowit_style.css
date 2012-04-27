@@ -1,0 +1,69 @@
+/******************************************************
+  Coppermine 1.5.x Plugin - SlideShowIt
+  *****************************************************
+  Copyright (c) 2010 Gene F. Young (www.genefyoung.com)
+  *****************************************************
+  This program is free software; you can redistribute 
+  it and/or modify it under the terms of the GNU General
+  Public License as published by the Free Software 
+  Foundation; either version 3 of the License, or (at 
+  your option) any later version.
+  *****************************************************
+  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/branches/cpg1.5.x/plugins/slideshowit/slideshowit_style.css $
+  $Revision: 7119 $
+  $LastChangedBy: gaugau $
+  $Date: 2010-01-24 21:39:28 +0100 (So, 24 Jan 2010) $
+  ****************************************************/
+  
+.slideshowitimg { cursor: pointer; }
+/* Buttons */  
+.next {	background: url('images/next_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+.next:hover {	background: url('images/next_h_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+ 
+.back {	background: url('images/previous_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+.back:hover {	background: url('images/previous_h_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+ 
+.forward {	background: url('images/forward_x12.png') no-repeat center center;	padding: 11px 11px 11px 11px; }
+.forward:hover {	background: url('images/forward_h_x12.png') no-repeat center center;	padding: 11px 11px 11px 11px; }
+ 
+.reverse {		background: url('images/reverse_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+.reverse:hover {background: url('images/reverse_h_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+ 
+.play {	background: url('images/play_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+.play:hover { background: url('images/play_h_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+ 
+.pause { background: url('images/pause_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+.pause:hover {	background: url('images/pause_h_x12.png') no-repeat center center; padding: 11px 11px 11px 11px; }
+
+.slideshowitlink, .slideshowitlink:hover { border: none ; color: #FFFFFF; } 
+
+.slideshowit_title {
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+.slideshowit_caption {
+	color:#000000;
+	font-size:14px;
+	font-weight:normal;
+	margin:0;
+	padding:0;
+	text-align: center;
+}
+.slideshowit_selection {
+	color: #000000;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0 20px 0 0;
+	padding: 0;
+	text-align: center;
+}
+
+#slideshowit_area {
+	float: none;
+	border-style: none;
+	padding-top: 0px;
+}
+

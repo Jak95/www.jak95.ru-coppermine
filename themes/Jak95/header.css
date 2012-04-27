@@ -1,0 +1,46 @@
+.logoheader
+{
+	/*border-top:solid 5px #555;*/
+	/*color:#555;*/
+	background: #background: none repeat scroll 0 0 #000000;
+}
+
+.logoheader
+{
+	margin:0;
+	padding:0;
+	text-align:center;
+	font-weight:normal;
+	line-height:1.5em;
+}
+
+#logo span.header1
+{
+	display: block;
+	font-size:0.4em;
+	top:0em;
+	line-height:0.8em;
+	text-align: left;
+	font-weight:bold;
+}
+
+#logo span {
+    /*color: #555555 !important;*/
+    font-size: 0.4em !important;
+    letter-spacing: 1px;
+    margin-top: 6px;
+}
+
+#logo span {
+    padding-left: 2px;
+}
+
+h1#logo {
+    font-size: 3em;
+    margin: 0px 20px 10px;
+	line-height: 1em;
+}
+
+#logo {
+    padding: 0;
+}

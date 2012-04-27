@@ -1,0 +1,1081 @@
+/*************************
+  Coppermine Photo Gallery
+  ************************
+  Copyright (c) 2003-2010 Coppermine Dev Team
+  v1.0 originally written by Gregory Demar
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License version 3
+  as published by the Free Software Foundation.
+
+  ********************************************
+  Coppermine version: 1.5.x
+  $HeadURL:
+  $Revision: 1.0
+  $LastChangedBy: DaMysterious
+  $Date: 04-11-2010
+**********************************************/
+/* Colors used in this style sheet:
+    Hex 000000 = RBG   0,   0,   0 = black
+    Hex 5F5F5F = RBG  95,  95,  95 = light black
+    Hex BDBEBD = RBG 189, 190, 189 = dark grey
+    Hex D1D7DC = RBG 209, 215, 220 = medium grey
+    Hex CCCCCC = RBG 204, 204, 204 = medium grey
+    Hex E4E4E4 = RGB 228, 228, 228 = medium grey
+    Hex EFEFEF = RBG 239, 239, 239 = dark white
+    Hex FFFFFF = RBG 255, 255, 255 = white
+    Hex 005D8C = RBG   0,  93, 140 = dark blue
+    Hex 0033CC = RBG   0,  91, 104 = medium blue
+    Hex 0E72A4 = RBG  14, 114, 164 = light blue
+    Hex 840084 = RBG 132,   0, 132 = purple
+    Hex 00529B = RGB   0,  82, 155 = blue
+    Hex BDE5F8 = RGB 189, 229, 247 = cyan
+    Hex 4F8A10 = RGB  79, 138,  16 = dark green
+    Hex DFF2BF = RGB 223, 242, 191 = light green
+    Hex 9F6000 = RGB 159,  96,   0 = dark brown
+    Hex FEEFB3 = RGB 254, 239, 179 = light brown
+    Hex D8000C = RGB 216,   0,  12 = red
+    Hex FFBABA = RGB 255, 186, 186 = pink
+    Hex D63301 = RGB 214,  51,   1 = red
+    Hex FFCCBA = RGB 255, 204, 186 = pink
+*/
+
+a:link {
+	color: #FFF;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #F0E80A;
+	text-decoration: underline;
+}
+
+a:active {
+	color: #FFF;
+	text-decoration: none;
+}
+
+a:focus {
+	color: #FFF;
+	text-decoration: none;
+}
+
+a.button, a.admin_menu {
+	color: white;
+	text-decoration: none;
+}
+
+/* pseudo-classes for image links */
+a:link .image{
+	border-color: #900;
+	border-style: solid;
+	border-width: 1px;
+	margin: 2px;
+}
+
+/* pseudo-classes for middlethumb links */
+a:link .middlethumb,a:visited .middlethumb,a:focus .middlethumb,a:hover .middlethumb,a:active .middlethumb{
+	border: 2px solid #FFF;
+}
+
+a:visited .image{
+	border-color: #900;
+	border-style: solid;
+	border-width: 1px;
+	margin: 2px;
+}
+
+a:hover .image{
+	border-color: #900;
+	border-style: solid;
+	border-width: 1px;
+	margin: 2px;
+}
+
+a:hover.button, a:hover.admin_menu {
+	background-color: #FD9604;
+}
+
+a:active .image{
+	border-color: #900;
+	border-style: solid;
+	border-width: 1px;
+	margin: 2px;
+}
+
+a:focus .image{
+	border-color: #F00;
+	border-style: solid;
+	border-width: 1px;
+	margin: 2px;
+}
+
+a.photoDown {
+	cursor: pointer;
+}
+
+a.photoUp {
+	cursor: pointer;
+}
+
+a.progressCancel {
+	background-image: url(../../images/cancelbutton.gif);
+	background-position: -14px 0px;
+	background-repeat: no-repeat;
+	display: block;
+	float: right;
+	font-size: 0;
+	height: 14px;
+	width: 14px;
+}
+
+a.progressCancel:hover {
+	background-position: 0px 0px;
+}
+
+a:hover.rounded_menu {
+	background: url(images/menu_gfx.png) no-repeat 0 0;
+	color: #F0E80A;
+	text-decoration: none;
+}
+
+a:hover.rounded_menu span {
+	background: url(images/menu_gfx.png) no-repeat 100% 0;
+}
+
+body {
+	background: #242424 url(images/body.gif);
+	color: #D1D7DC;
+	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0 5px;
+}
+
+/** Filmstrip styles */
+div#film {
+	overflow: hidden;
+	padding: 5px 0 5px 0;
+}
+
+/** styles for album manager and photo album*/
+div#sort {
+	background: #191919;
+	border: 1px solid #D1D7DC;
+	border-bottom: none;
+	border-top: none;
+	height: 240px;
+	margin: 0;
+	overflow: auto;
+	padding: 11px;
+}
+
+/** Swfupload css **/
+div.fieldset {
+	border: 2px solid Maroon;
+	margin: 10px 0;
+	padding: 20px 10px;
+}
+
+div.fieldset span.legend {
+	background-color: Black;
+	color: #fff;
+	padding: 3px;
+	position: relative;
+	top: -30px;
+}
+
+div.flash {
+	border: 1px outset #000; /* set the outer border, thinkness, style and color */
+	margin: 10px 5px;
+	width: 375px;
+}
+
+form {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+h1 {
+	color: #D1D7DC;
+	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 120%;
+	margin: 2px;
+	text-decoration: none;
+}
+
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin: 0px;
+}
+
+h3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 2px;
+}
+
+h4 {
+	color: #D1D7DC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0px;
+}
+
+input[disabled]{
+	border: 1px solid #ccc; /* FF 2 Fix */
+}
+
+li {
+	list-style-type: none;
+	margin-bottom: 4px;
+	margin-left: 10px;
+	margin-top: 4px;
+	padding: 0px;
+}
+
+/* Styles for the standard dropdown menus. */
+#main_menu {
+	float: left;
+	margin: 0;
+	padding: 0 0 0 0.5em;
+	width: 98%;
+}
+
+p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	margin: 2px 0px;
+}
+
+pre.filepath {
+	margin: 0px;
+	padding: 0px;
+}
+
+table {
+	font-size: 12px;
+}
+
+/** styles for album manager and photo album*/
+table#album_sort tr td {
+	border-bottom: 1px solid #CCCCCC;
+	padding: 3px;
+}
+
+table#album_sort tr td span.editAlbum {
+	color: #FF0000;
+	cursor: pointer;
+	display: none;
+	font-size: 10px;
+	line-height: 100%;
+	margin-left: 100px;
+	text-decoration: underline;
+}
+
+/**styles for photo manager*/
+table#pic_sort tr td {
+	border-bottom: 1px solid #CCCCCC;
+	padding: 4px;
+}
+
+.alblink {
+	font-weight: bold;
+}
+
+.alblink a {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+.alblink a:hover {
+	color: #F0E80A;
+	text-decoration: underline;
+}
+
+.album_stat {
+	font-size: 85%;
+	margin: 5px 0px;
+}
+
+.align_top ul li a, .align_bottom ul li a {
+	margin: 0 12px 0 0;
+}
+
+.bblink a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.bblink a:hover {
+	color: #F0E80A;
+	text-decoration: underline;
+}
+
+/* Complete */
+.blue {
+	background-color: #F0F5FF;
+	border: solid 1px #CEE2F2;
+}
+
+.button {
+	font-size: 0.8em;
+	white-space: nowrap;
+}
+
+.button, .admin_menu {
+	background-color: #5A6C85;
+	border: 1px solid #5A6C85;
+	color: white;
+	cursor: pointer;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin-right: 2px;
+	-moz-border-radius: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	-webkit-border-radius: 5px;
+}
+
+/* Styles for the standard button lists.
+------------------------------------------------------- */
+.buttonlist ul li a {
+	background: url(images/menu_gfx.png) no-repeat 0 0;
+	border: 1px solid #666;
+	color: white;
+	cursor: pointer;
+	float: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	margin-right: 5px;
+	-moz-border-radius: 5px;
+	padding-left: 0px;
+	padding-right: 5px;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	white-space: nowrap;
+}
+
+.buttonlist ul li a:hover {
+	background: url(images/menu_gfx.png) no-repeat 0 -30px;
+	text-decoration: none;
+}
+
+.catlink {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+
+.catlink a {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+.catlink a:hover {
+	color: #F0E80A;
+	text-decoration: underline;
+}
+
+.catrow {
+	background-color: #191919;
+	color: #FFF;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+.catrow_noalb {
+	background-color: #191919;
+	color: #D1D7DC;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+.checkbox {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	vertical-align: middle;
+}
+
+.clickable_option {
+	cursor: default;
+}
+
+.comment_date{
+	color: #5F5F5F;
+	font-size: 90%;
+	vertical-align: middle;
+}
+
+.cpg_message_error {
+	background-color: #FFBABA;
+	background-image: url('../../images/message/stop.png');
+	color: #D8000C;
+}
+
+.cpg_message_info {
+	background-color: #BDE5F8;
+	background-image: url('../../images/message/info.png');
+	color: #00529B;
+}
+
+.cpg_message_info, .cpg_message_success, .cpg_message_warning, .cpg_message_error, .cpg_message_validation {
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	border: 1px solid;
+	margin: 10px 0px;
+	-moz-border-radius: 5px;
+	padding: 15px 10px 15px 50px;
+	-webkit-border-radius: 5px;
+}
+
+.cpg_message_success {
+	background-color: #DFF2BF;
+	background-image: url('../../images/message/ok.png');
+	color: #4F8A10;
+}
+
+.cpg_message_validation {
+	background-color: #FFCCBA;
+	background-image: url('../../images/message/error.png');
+	color: #D63301;
+}
+
+.cpg_message_warning {
+	background-color: #FEEFB3;
+	background-image: url('../../images/message/warning.png');
+	color: #9F6000;
+}
+
+.debug_text {
+	background-color: #EFEFEF;
+	border: #BDBEBD;
+	margin: 0px;
+	width: 100%;
+	color: black;
+}
+
+.detail_head_collapsed, .detail_head_expanded {
+	color: white;
+}
+
+.display_media {
+	background: #000000;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-top: 1px;
+}
+
+/* Styles for the dropmenu.
+------------------------------------------------------- */
+.dropmenu {
+	padding: 0 0.5em;
+}
+
+.dropmenu a {
+	color: #000000;
+	display: block;
+	text-decoration: none;
+}
+
+.dropmenu a span {
+	display: block;
+	font-size: 0.9em;
+	padding: 0 0 0 5px;
+}
+
+.dropmenu li {
+	float: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+/* the active button */
+.dropmenu li a.active {
+	background: url(images/menu_gfx.png) no-repeat 100% 0;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.dropmenu li a.active span.firstlevel {
+	background: url(images/menu_gfx.png) no-repeat 0 0;
+}
+
+/* the backgrounds first level only*/
+.dropmenu li a.firstlevel {
+	margin-right: 8px;
+}
+
+.dropmenu li a.firstlevel span.firstlevel {
+	display: block;
+	height: 22px;
+	left: -5px;
+	line-height: 19px;
+	padding-left: 5px;
+	position: relative;
+}
+
+/* the hover effects */
+.dropmenu li a.firstlevel:hover {
+	background: none;
+	color: #ffffff;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.dropmenu li a.firstlevel:hover span.firstlevel {
+	background: none;
+}
+
+.dropmenu li li {
+	border-left: solid 1px #999;
+	border-right: solid 1px #999;
+	margin: 0;
+	width: 19em;
+}
+
+.dropmenu li li a span {
+	text-align: left;
+	display: block;
+	padding: 8px;
+}
+
+/* the hover effects on level2 and 3*/
+.dropmenu li li a:hover {
+	background: #383838 url(images/cell.gif) repeat-x;
+	color: #F0E80A;
+	text-decoration: none;
+}
+
+.dropmenu li li.additional_items {
+	background: #383838;
+	color: white;
+}
+
+.dropmenu li li:hover ul {
+	top: auto;
+}
+
+.dropmenu li ul {
+	background: url(images/menu_gfx.png) 0 -100px no-repeat;
+	border-bottom: solid 1px #999;
+	display: none;
+	font-weight: normal;
+	padding: 7px 0 0 0;
+	position: absolute;
+	width: 19.2em;
+	z-index: 90;
+}
+
+.dropmenu li ul ul {
+	margin: -1.8em 0 0 13em;
+}
+
+.dropmenu li:hover ul {
+	display: block;
+}
+
+.dropmenu li:hover ul ul, .dropmenu li:hover ul ul ul {
+	top: -999em;
+}
+
+.dropmenu, .dropmenu ul {
+	line-height: 1em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.external {
+	background: transparent url('../../images/link.gif') 100% 50% no-repeat;
+	padding-right: 10px;
+}
+
+.filmstrip_background {
+	background-color: #000000;
+}
+
+.footer {
+	font-size: 9px;
+}
+
+.footer a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	color: #F0E80A;
+	text-decoration: underline;
+}
+
+/* Current */
+.green {
+	background-color: #EBFFEB;
+	border: solid 1px #DDF0DD;
+}
+
+.icon {
+	margin-right: 1px;
+	vertical-align: middle;
+}
+
+.image {
+	border-color: #900;
+	border-style: solid;
+	border-width: 1px;
+	margin: 2px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.imageborder {
+	background-color: #191919;
+	border: 1px solid #000000;
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
+
+.img_caption_table {
+	background-color: #191919;
+	border: none;
+	margin: 0px;
+	width: 100%;
+}
+
+.img_caption_table td {
+	background-color: #191919;
+	border-top: 1px solid #333;
+	padding-bottom: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 6px;
+	white-space: normal;
+}
+
+.img_caption_table th {
+	background-color: #191919;
+	border-top: 1px solid #333;
+	color: #000000;
+	font-size: 100%;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 4px;
+}
+
+.important {
+	color: red; /* background-image : url(images/important.gif); */
+	font-weight: bold;
+	padding-bottom: 3px;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-top: 3px;
+}
+
+.listbox {
+	background-color: #2f2f2f;
+	border: 1px solid gray;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	vertical-align: middle;
+}
+
+.listbox_lang {
+	background-color: #2f2f2f;
+	border: 1px solid gray;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	vertical-align: middle;
+}
+
+.maintable {
+	background-color: #191919;
+	color: #D1D7DC;
+	margin-bottom: 1px;
+	margin-top: 1px;
+}
+
+.menuheight {
+	height: 20px; /* IE7 */
+	width: 1px; /* IE7 */
+}
+
+/* Message */
+.message {
+	background-color: #D1D7DC;
+	border: solid 1px #FFDD99;
+	margin: 1em 0;
+	overflow: hidden;
+	padding: 10px 20px;
+	color: black;
+}
+
+.navmenu {
+	background: none;
+	border-style: none;
+	color: #FFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+}
+
+.navmenu a {
+	color: #FFF;
+	display: block;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	text-decoration: none;
+}
+
+.navmenu a:hover {
+	color: #F0E80A;
+	text-decoration: none;
+}
+
+.navmenu img {
+	margin-bottom: 1px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 1px;
+}
+
+.next_strip{
+	text-align: right;
+}
+
+.pic_caption {
+	color: #D1D7DC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+	line-height: 1.0em;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	text-align: center;
+}
+
+.pic_title {
+	color: #D1D7DC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 120%;
+	font-weight: bold;
+	line-height: 1.0em;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	text-align: center;
+}
+
+.prev_strip {
+	text-align: left;
+}
+
+.progressBarComplete {
+	background-color: green;
+	visibility: hidden;
+	width: 100%;
+}
+
+.progressBarError {
+	background-color: red;
+	visibility: hidden;
+	width: 100%;
+}
+
+.progressBarInProgress,
+.progressBarComplete,
+.progressBarError {
+	background-color: blue;
+	font-size: 0;
+	height: 2px;
+	margin-top: 2px;
+	width: 0%;
+}
+
+.progressBarStatus {
+	font-family: Arial;
+	font-size: 7pt;
+	margin-top: 2px;
+	text-align: left;
+	white-space: nowrap;
+	width: 337px;
+}
+
+.progressContainer {
+	background-color: #F7F7F7;
+	border: solid 1px #E8E8E8;
+	margin: 5px;
+	overflow: hidden;
+	padding: 4px;
+}
+
+.progressName {
+	color: #555;
+	font-size: 8pt;
+	font-weight: 700;
+	height: 14px;
+	overflow: hidden;
+	text-align: left;
+	white-space: nowrap;
+	width: 323px;
+}
+
+.progressWrapper {
+	overflow: hidden;
+	width: 357px;
+}
+
+.radio {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	vertical-align: middle;
+}
+
+/* Error */
+.red {
+	background-color: #FFEBEB;
+	border: solid 1px #B50000;
+}
+
+.rounded_menu {
+	background: url(images/menu_gfx.png) no-repeat 0 -30px;
+	color: white;
+	cursor: pointer;
+	display: block;
+	font-size: 0.8em;
+	padding: 0;
+}
+
+.rounded_menu span {
+	background: url(images/menu_gfx.png) no-repeat 100% -30px;
+	display: block;
+	height: 24px;
+	line-height: 20px;
+	padding: 0 8px 0 0;
+	position: relative;
+	right: -8px;
+}
+
+.sortorder_cell {
+	color: #D1D7DC;
+	margin: 0px;
+	padding: 0px;
+	text-align: right;
+}
+
+.sortorder_options {
+	color: #D1D7DC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	font-weight: normal;
+	margin: 0px;
+	padding: 2px;
+	white-space: nowrap;
+}
+
+.statlink {
+	color: #D1D7DC;
+}
+
+.statlink a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.statlink a:hover {
+	color: #F0E80A;
+	text-decoration: underline;
+}
+
+.swfupload {
+	vertical-align: top;
+}
+
+.tableb {
+	background-color: #191919;
+	color: #D1D7DC;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+/* This class will be used in conjunction with class tableb: attributes not particularly (re)-assigned will be taken into account from tableb. */
+/* It is being used to accomplish alternating row colors for lists. */
+/* It's recommended to only assign another background color that slightly differs from the one defined in tableb */
+.tableb_alternate {
+	background: #191919;
+	padding: 4px;
+}
+
+.tablebspecial {
+	background: #191919;
+	padding: 4px;
+}
+
+.tablef {
+	background-color: #191919;
+	color: #D1D7DC;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+.tableh1 {
+	background-color: #191919;
+	color: #D1D7DC;
+	font-family: arial,helvetica,sans-serif;
+	font-size: 1.1em;
+	font-weight: bold;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+.tableh2 {
+	background-color: #191919;
+	color: #D1D7DC;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+.textinput {
+	border: 1px solid #D1D7DC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.thumb_caption {
+	display: block;
+	font-size: 80%;
+	padding: 1px;
+}
+
+.thumb_caption a {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+.thumb_filename {
+	display: block;
+	font-size: 80%;
+}
+
+.thumb_num_comments {
+	display: block;
+	font-size: 80%;
+	font-style: italic;
+	font-weight: normal;
+	padding: 2px;
+}
+
+.thumb_title {
+	display: block;
+	font-size: 80%;
+	font-weight: bold;
+	padding: 2px;
+}
+
+.thumbnails {
+	background: #191919;
+	color: #D1D7DC;
+	padding: 5px;
+}
+
+.topmenu {
+	font-size: 100%;
+	line-height: 130%;
+}
+
+.topmenu a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.topmenu a:hover {
+	color: #F0E80A;
+	text-decoration: underline;
+}
+
+.user_thumb_infobox {
+	margin-bottom: 1px;
+	margin-top: 1px;
+}
+
+.user_thumb_infobox a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.user_thumb_infobox a:hover {
+	color: #F0E80A;
+	text-decoration: underline;
+}
+
+.user_thumb_infobox td {
+	font-size: 80%;
+	margin-bottom: 1px;
+	margin-top: 1px;
+	text-align: center;
+}
+
+.user_thumb_infobox th {
+	font-size: 100%;
+	font-weight: bold;
+	margin-bottom: 1px;
+	margin-top: 1px;
+	text-align: center;
+}
+
+#cpgChooseLanguageWrapper {
+	float: left;
+	margin-bottom: 0px;
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-top: 0px;
+}
+
+#cpgChooseThemeWrapper {
+	float: left;
+	margin-bottom: 0px;
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-top: 0px;
+}
+
+#GB_window {
+	background-color: #EFEFEF;
+	border: 5px solid #0E72A4;
+}
+
+#sysmenu {
+	margin-top: 5px;
+}

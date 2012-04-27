@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<title>template.html - Coppermine Photo Gallery - Documentation &amp; manuel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="fr" />
+<meta name="copyright" content="Coppermine dev team" />
+<meta name="description" content="Coppermine est livré avec un moteur puissant qui vous permet de créer votre propre thème, en donnant à votre galerie un look unique qui correspond à la présentation générale de votre site. Pour vous assurer que votre thème personnalisé ne soit pas écrasé lors de la mise, vous devriez commencer par un nom de théme personnalisé." />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta http-equiv="imagetoolbar" content="no" />
+<!--
+  SVN version info:
+
+  Coppermine version: 1.5.20
+  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/theme_template.htm $
+  $Revision: 8359 $
+
+
+-->
+<link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../style/print.css" media="print" />
+<link rel="shortcut icon" href="../favicon.ico" />
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script src="../js/jquery.treeview.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="docheader">Coppermine Photo Gallery v1.5.x: Documentation et manuel</h1>
+<div id="toc">
+<a href="toc.htm">Table des matières</a>
+</div>
+
+
+<a name="theme_template_html"></a><h1>Modifier template.html<a href="#theme_template_html" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h1>
+<p>Le fichier template.html est le fichier central de chaque thème: il ne peut contenir que du code HTML/CSS/JavaScript (pas de PHP !) plus des conteneurs qui seront remplacés par du contenu lorsque le thème est interprété (exemple: lorsque la sortie HTML des pages de votre galerie est générée). Template.html détermine l'aspect général des pages de votre galerie. Utilisez ce fichier pour faire en sorte que votre galerie ait le même aspect que le reste de votre site.</p>
+
+<a name="theme_template_token"></a><h2>Conteneurs (tokens) du thème<a href="#theme_template_token" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
+<p>Lors de la modification du fichier &quot;<strong>template.html</strong>&quot; n'effacez pas les éléments entre <strong>{}</strong> -  Ce sont les conteneurs utilisés par le script. Pensez que ces éléments placés entre accolades seront remplacés par la suite par du contenu dynamique lorsque votre thème sera interprété.<br />
+Vous pouvez déplacer ces conteneurs afin d'obtenir un aspect différent. Toutefois il y a quelques limites - en lien avec le conteneur principal <a href="#theme_template_gallery">{GALLERY}</a>, qui n'est pas vraiment un conteneur mais plus un séparateur entre le contenu géré par les fonctions pageheader et pagefooter.</p>
+
+<a name="theme_template_important"></a><h2>Important<a href="#theme_template_important" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
+<p>Il y a des conteneurs optionnels, que vous pouvez enlever sans risques du fichier template.html si vous n'avez pas besoin de la/des fonction(s) correspondant(e)(es) à ce(s) conteneur(s).</p>
+<p>Attention à ne pas effacer le conteneur <tt class="code">{JAVASCRIPT}</tt> ce JavaScript est nécessaire pour l'affichage de la fenêtre pop-up des images originales et à d'autres fonctions utilisant JavaScript. Si vous l'enlevez, vous ne remarquerez probablement rien en premier lieu, mais vous ne devez en aucun cas l'effacer ou votre galerie présentera des disfonctionnements.</p>
+<p>Regardez la colonne "Nécessaire ?" dans la liste des conteneurs du fichier template.html - ceux étiquetés "optionnel" peuvent être enlevés sans problèmes (à l'exception des fonctions correspondantes qui ne fonctionneront plus bien entendu).<br />
+Un bon exemple est le conteneur <tt class="code">{GAL_DESCRIPTION}</tt> - Il affiche simplement ce que vous avez entré comme description de galerie dans la page de configuration. Si vous n'avez pas besoin de l'affichage de cette description sur chaque page de votre galerie Coppermine, effacez simplement le conteneur du fichier template.html.</p>
+
+
+<a name="theme_template_token_list"></a><h2>Liste des conteneurs (tokens) dans template.html<a href="#theme_template_token_list" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
+<table border="0" cellspacing="0" cellpadding="0" class="cpg_zebra">
+  <tr>
+    <th valign="top" align="left">Conteneur</th>
+    <th valign="top" align="left">Description</th>
+    <th valign="top" align="left">Position pas défaut</th>
+    <th valign="top" align="left">Nécessaire ?</th>
+    <th valign="top" align="left">Dépendances</th>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_lang_dir"></a>{LANG_DIR}<a href="#theme_template_lang_dir" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Sens d'écriture de la langue</strong><br />
+      Les valeurs possibles sont <abbr title="left-to-right">LTR</abbr> et <abbr title="right-to-left">RTL</abbr>. Ne doit pas être modifié.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top">Complété par Coppermine, en fonction du sens de lecture de la langue choisie par l'utilisateur.</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_charset"></a>{CHARSET}<a href="#theme_template_charset" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>jeu de caractères</strong><br />
+      Détermine le jeu de caractères utilisé - complète la balise HTML <tt class="code">&lt;meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" /&gt;</tt>. Ne changez rien sauf si vous savez <em>réellement</em> ce que vous faites.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top">Complété par Coppermine en fonction de <a href="configuration.htm#admin_language_charset">l'encodage</a> choisi par l'administrateur dans la configuration.</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_title"></a>{TITLE}<a href="#theme_template_title" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Titre de la page</strong><br />
+      Le titre de la page qui est le plus souvent prit en compte par les moteurs de recherche. Le visiteur humain voit la balise titre dans la fenêtre du navigateur.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top">La balise titre est générée par chaque fichier Coppermine (exemple: displayimage.php, thumbnails.php etc.), et géré par la fonction pageheader.</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_meta"></a>{META}<a href="#theme_template_meta" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Balise méta</strong><br />
+      Les balises méta dépendantes du contenu dynamique de la page sont insérées ici. Actuellement, Coppermine utilise la balise méta keywords(<tt class="code">&lt;meta name="keywords" content="CONTENU DYNAMIQUE ICI" /&gt;</tt>) et la balise méta refresh (<tt class="code">&lt;meta http-equiv="refresh" content="5; URL=REDIRECTION_PAGE" /&gt;</tt>).<br />
+      Si vous souhaitez ajouter d'autres balises méta (par exemple, les méta-données author <tt class="code">&lt;meta name="author" content="Nom Prénom" /&gt;</tt>), ne remplacez pas ce conteneur, mais ajoutes votre balise méta après le conteneur {META}.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top">Complété dynamiquement par le script, (exemple: pour la balise méta keywords basée sur le fichier mots-clés).</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_javascript"></a>{JAVASCRIPT}<a href="#theme_template_javascript" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>JavaScript</strong><br />
+      Ce conteneur a été ajouté dans cpg1.5.x il sera remplacé par <tt class="code">&lt;script type="text/javascript" src="scripts.js"&gt;&lt;/script&gt;</tt> (ce qui est obligatoire pour faire fonctionner correctement Coppermine). N'enlevez pas ce conteneur, mais vous pouvez ajouter votre code JavaScript personnel en dessous (dans une nouvelle ligne).
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top"><abbr title="not applicable">n/a</abbr></td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_custom_header"></a>{CUSTOM_HEADER}<a href="#theme_template_custom_header" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Haut de page personnalisé</strong><br />
+      Si l'option correspondant est définie dans la configuration, ce conteneur sera remplacé par le contenu généré par votre <a href="php-content.htm#php-content_header_footer">Haut de page personnalisé</a> Si vous n'utilisez pas la fonction haut de page personnalisé, vous pouvez enlever le conteneur {CUSTOM_HEADER} de votre fichier template.html, mais il est préférable de le laisser en place si vous deviez décider d'utiliser la fonction par la suite.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Optionnel</td>
+    <td valign="top"><a href="configuration.htm#admin_theme_custom_header_path_start">Chemin pour l'inclusion du haut de page personnalisé</a> défini dans la configuration</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_gal_name"></a>{GAL_NAME}<a href="#theme_template_gal_name" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Nom de la galerie</strong><br />
+      Sera remplacé par le nom de la galerie que vous avez défini dans la configuration lorsque le thème sera interprété. Vous pouvez effacer ce conteneur, en particulier si votre thème comprend déjà une bannière ou le nom de votre galerie est affiché.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Optionnel</td>
+    <td valign="top"><a href="configuration.htm#admin_general_name">Nom de la galerie</a> défini dans la configuration</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_gal_description"></a>{GAL_DESCRIPTION}<a href="#theme_template_gal_description" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Description de la galerie</strong><br />
+      Sera remplacé par la description de la galerie que vous avez définie dans la configuration lorsque le thème sera interprété. Vous pouvez effacer ce conteneur, en particulier si votre thème comprend déjà une bannière ou la description de votre galerie est affichée.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Optionnel</td>
+    <td valign="top"><a href="configuration.htm#admin_general_description">Description de la galerie</a> défini dans la configuration</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_sys_menu"></a>{SYS_MENU}<a href="#theme_template_sys_menu" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Menu système</strong><br />
+      Détermine la position du menu de premier niveau que l'utilisateur final verra sur votre page (celui qui contient les liens s'identifier/quitter). Même si vous voulez vous débarrassez de ce menu ou de certains de ses éléments, n'effacez pas le conteneur {SYS_MENU}, mais effacez les éléments que vous ne voulez pas voir afficher en modifiant le fichier theme.php.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top">
+      <ul>
+        <li>Lien connexion/déconnexion: Statut des utilisateurs (administrateur/enregistré/visiteur).</li>
+        <li>Lien téléchargement: droit de l'utilisateur actuel à télécharger (défini dans le <a href="groups.htm#group_cp">gestionnaire de groupe</a>).</li>
+        <li>Lien inscription: <a href="configuration.htm#admin_allow_registration">Autorise l'enregistrement de nouveaux utilisateurs</a> activé/désactivé dans la configuration</li>
+        <li>Lien FAQ: <a href="configuration.htm#admin_theme_faq">Affiche la FAQ</a> activé/désactivé dans la configuration.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_sub_menu"></a>{SUB_MENU}<a href="#theme_template_sub_menu" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Sous-menu</strong><br />
+      Détermine la position du menu de second niveau que l'utilisateur final verra sur votre page (celui qui contient les liens &quot;Albums&quot; / &quot;Derniers téléchargements&quot; / &quot;Derniers commentaires&quot; / &quot;Les plus populaires&quot; / &quot;Les mieux notées&quot; / &quot;Mes favoris&quot; / &quot;Par date&quot; / &quot;Rechercher&quot;). Même si vous voulez vous débarrasser de ce menu ou de certains de ses éléments, n'effacez pas le conteneur {SUB_MENU}, mais effacez les éléments que vous ne voulez pas voir afficher en modifiant le fichier theme.php.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top"><abbr title="not applicable">n/a</abbr></td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_language_select_flags"></a>{LANGUAGE_SELECT_FLAGS}<a href="#theme_template_language_select_flags" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Sélecteur de langue (drapeaux)</strong><br />
+      Affiche une ligne de drapeaux qui représentent les <a href="languages.htm">langues</a> disponibles pour l'utilisateur final.<br />
+	  La liste de sélection de langue ressemble à ça:<br />
+		<div class="cpg_example">Choisissez votre langue: 
+		<a href="#"><img src="../../images/flags/cn.png" border="0" width="16" height="11" alt="" title="Chinese simplified / &#20013;&#25991; - &#31616;&#20307;" /></a>
+
+		<a href="#"><img src="../../images/flags/us.png" border="0" width="16" height="11" alt="" title="English (US)" /></a>
+
+		<a href="#"><img src="../../images/flags/fr.png" border="0" width="16" height="11" alt="" title="French / FranÃ§ais" /></a>
+
+		<a href="#"><img src="../../images/flags/de.png" border="0" width="16" height="11" alt="" title="German (informal) / Deutsch (Du)" /></a>
+
+		<a href="#"><img src="../../images/flags/lu.png" border="0" width="16" height="11" alt="" title="Luxembourgish / LÃ«tzebuergesch" /></a>
+
+		<a href="#"><img src="../../images/flags/reset.png" border="0" width="16" height="11" alt="" title="Default language" /></a>
+		</div>
+	  Bien entendu (avec cet exemple), cela fera quelque chose que quand une nouvelle sélection est faite: la langue de la galerie va changera.
+	  <div class="cpg_message_info">
+	  Retour dans cpg1.4.x, le conteneur réside habituellement dans tous les thèmes qui accompagne Coppermine et il y avait une option dans la configuration de Coppermine afin de déterminer les conditions dans lesquelles vous vouliez que le sélecteur de langue apparaisse ou non. Avec cpg1.5.x le sélecteur a été abandonné des thèmes ainsi que l'option du panneau de configuration, de sorte que vous devez ajouter explicitement le conteneur à votre fichier template.html pour voir le sélecteur. Par défaut, Coppermine n'affiche <em>pas</em> le sélecteur de langue. La raison de la décision de l'équipe de développement de Coppermine de ne plus mettre le sélecteur de langue vient du fait que Coppermine intègre des mécanismes de détection de la <a href="languages.htm#how">langue</a> préférée du visiteur si bien qu'il n'y a presque jamais le besoin d'offrir un sélecteur de langue à votre visiteurs. Ce n'est que dans les rares cas ou vous êtes convaincu que la langue du navigateur du visiteur, n'est probablement pas la langue qu'ils préfèrent voir en visitant votre galerie que vous devez fournir un sélecteur de langue.
+	  </div>
+	  <div class="cpg_example">C'est par exemple le cas pour le Luxembourg: le Grand-Duché de Luxembourg est un petit pays en Europe avec trois langues officielles:
+		<ul>
+			<li>Français</li>
+			<li>Allemand</li>
+			<li>Luxembourgeois</li>
+		</ul>
+		Avec moins d'un demi-million d'habitants (et probablement beaucoup moins de personnes parlant le luxembourgeois Actuellement chaque jour), les créateurs des navigateurs principaux ne fournissent pas un navigateur avec le luxembourgeois comme langue préférée. Par la suite, si principalement votre galerie est pour un public luxembourgeois, il peut être judicieux d'ajouter un sélecteur de langue à votre thèmes en éditant <tt class="code">themes/votretheme/template.html</tt> pour ajouter quelque part (de préférence près du haut de l'écran) la galerie en luxembourgeois permettant à vos visiteurs de la voir avec cette langue (à condition qu'il existe un fichier de langue en luxembourgeoise, bien sûr).</div>
+    </td>
+    <td valign="top">Aucune</td>
+    <td valign="top">Optionnel</td>
+    <td valign="top">-</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_language_select_list"></a>{LANGUAGE_SELECT_LIST}<a href="#theme_template_language_select_list" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Sélecteur de langue (liste)</strong><br />
+      Affiche une liste déroulante des <a href="languages.htm">langues</a> disponibles pour l'utilisateur final.<br />
+	  La liste du sélecteur de langue ressemble Ã  ceci:
+	  <div class="cpg_example">
+		<select name="cpgLanguageSelect">
+		<option value="bulgarian" >Bulgarian (&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;)</option>
+		<option value="chinese_gb" >Chinese simplified (&#20013;&#25991; - &#31616;&#20307;)</option>
+		<option value="english"  selected="selected">English (US)</option>
+		<option value="english_gb" >English (British)</option>
+		<option value="finnish" >Finnish (Suomea)</option>
+		<option value="french" >French (Fran&ccedil;ais)</option>
+		<option value="german">German (Deutsch)</option>
+		<option value="greek" >Greek (&#917;&#955;&#955;&#951;&#957;&#953;&#954;&#940;)</option>
+		<option value="polish" >Polish (Polski)</option>
+		<option value="russian" >Russian (&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;)</option>
+		</select>
+	  </div>
+	  Bien entendu (avec cet exemple), cela fera quelque chose que quand une nouvelle sélection est faite: la langue de la galerie va changera.	
+	  <div class="cpg_message_info">Si vous utilisez le sélecteur de langue avec des drapeaux ou celle qui affiche une liste déroulante des langues disponibles c'est simplement une question de goût, donc en gros ce qui a été dit ci-dessus à propos de <a href="#theme_template_language_select_flags">{LANGUAGE_SELECT_FLAGS}</a> s'applique à {LANGUAGE_SELECT_LIST} également.</div>
+    </td>
+    <td valign="top">Aucune</td>
+    <td valign="top">Optionnel</td>
+    <td valign="top"></td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_theme_select_list"></a>{THEME_SELECT_LIST}<a href="#theme_template_theme_select_list" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Sélecteur de thème (liste)</strong><br />
+      Affiche une liste déroulante des thèmes disponibles pour que l'utilisateur final puisse choisir.
+    </td>
+    <td valign="top">Aucune</td>
+    <td valign="top">Optionnel</td>
+    <td valign="top"></td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_admin_menu"></a>{ADMIN_MENU}<a href="#theme_template_admin_menu" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Menu administrateur</strong><br />
+      Affiche le <a href="admin_menu.htm">menu administrateur</a>.
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top">L'administrateur doit être identifié. <a href="admin_menu.htm#admin_user_mode">Les contrôles administrateurs</a> ne doivent pas être cachés</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_message_block"></a>{MESSAGE_BLOCK}<a href="#theme_template_message_block" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Bloc des messages</strong><br />
+    </td>
+    <td valign="top">pageheader</td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top"></td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_gallery"></a>{GALLERY}<a href="#theme_template_gallery" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Galerie</strong><br />
+	  Conteneur spécial qui sera remplacé par le contenu de Coppermine. Dans l'introduction ci-dessus, nous expliquions que vous pouvez déplacer les conteneurs dans le fichier template.html.<br />
+	  Néanmoins, vous devez comprendre que le conteneur {GALLERY} est un conteneur spécial: Voyez le plus comme un séparateur que comme un conteneur. Lorsque le thème est interprété, le conteneur {GALLERY} sera remplacé par le contenu principal de la galerie. Les autres conteneurs se trouvant entre accolades, se trouvant <em>avant</em> {GALLERY} sont gérés par la <a href="#theme_create_theme_pageheader">fonction pageheader</a>; les conteneurs qui viennent <em>après</em> {GALLERY} sont gérés par la <a href="#theme_create_theme_pagefooter">fonction pagefooter</a>. C'est pourquoi vous devez garder en mémoire que vous pouvez déplacer librement les conteneurs dans le fichier template.html tant que vous n'inversez pas la position du conteneur que vous déplacez avec {GALLERY}.
+    </td>
+    <td valign="top"><abbr title="not applicable">n/a</abbr></td>
+    <td valign="top">Obligatoire</td>
+    <td valign="top"></td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_custom_footer"></a>{CUSTOM_FOOTER}<a href="#theme_template_custom_footer" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Pied de page personnalisé</strong><br />
+      Si l'option correspondante est activée dans la configuration, le conteneur sera remplacé par le contenu généré par votre <a href="php-content.htm#php-content_header_footer">pied de page personnalisé</a> Si vous n'utilisez pas la fonction haut de page personnalisé, vous pouvez enlever le conteneur {CUSTOM_FOOTER} de votre fichier template.html, mais il est préférable de le laisser en place si vous deviez décider d'utiliser la fonction par la suite.
+    </td>
+    <td valign="top">pagefooter</td>
+    <td valign="top">Optionnel</td>
+    <td valign="top"><a href="configuration.htm#admin_theme_custom_footer_path_start">Chemin pour l'inclusion du pied de page personnalisé</a> défini dans la configuration</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_vanity"></a>{VANITY}<a href="#theme_template_vanity" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Icônes de courtoisies</strong><br />
+      Si votre thème personnalisé est valide, le conteneur {VANITY} sera remplacé par la mini bannière avec les liens vers PHP.net, mysql.com et les validations HTML et CSS des validateurs du W3C.<br />
+      <img src="../images/vanity.png" width="351" height="26" border="0" alt="" title="vanity block" />
+    </td>
+    <td valign="top">pagefooter</td>
+    <td valign="top">Optionnel</td>
+    <td valign="top">Aucune</td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_template_credits"></a>{CREDITS}<a href="#theme_template_credits" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">
+      <strong>Crédits</strong><br />
+      Affichera le &quot;Powered by Coppermine&quot; sur votre page. Si ce conteneur est enlevé, le droit d'auteur sera affiché comme faisant partie du bloc {GALLERY}. Si vous voulez modifier (ou même enlever) le &quot;Powered by Coppermine&quot; regardez la section <a href="theme_copyright.htm">droit d'auteur-mentions légales dans le pied de page</a>
+    </td>
+    <td valign="top">pagefooter</td>
+    <td valign="top">Optionnel</td>
+    <td valign="top">Section des crédits définie dans theme.php</td>
+  </tr>
+</table>
+
+
+
+<div id="doc_footer">
+	<div class="doc_info_wrapper">
+		<span id="doc_last_changed">$LastChangedDate: 2012-03-29 16:32:35 +0200 (Do, 29 Mrz 2012) $</span>
+		<span id="doc_revision">$Revision: 8359 $</span>
+	</div>
+</div>
+</body>
+</html>

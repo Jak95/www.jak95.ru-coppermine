@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Send JSON data</title>
+
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    
+    <meta name="description" content="Send JSON" />
+    <meta name="keywords" content="json, javascript, jquery" />
+</head>
+<body>
+    <form method="post" action="#" id="myForm">
+        <p><input type="text" name="field1" id="field1" /><label for="field1">Поле 1</label></p>
+        <p><input type="text" name="field2" id="field2" /><label for="field2">Поле 2</label></p>
+        <p><input type="submit" name="sendBtn" value="Отправить" /></p>
+    </form>
+    
+    <script type="text/javascript" src="jquery-1.3.1.min.js"></script>
+    <script type="text/javascript" src="jquery.json-1.3.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#myForm").submit(function() {
+                var formData = {
+                    "field1":$("#field1").val()
+                    , "field2":$("#field2").val()
+                };
+                $.ajax({
+                    url: '../../files.php' //'dataparser.php'
+                    , type:'GET'
+					, contentType: 'application/json'
+                    , data:'jsonData=' + $.toJSON(formData)
+					, dataType: "json"
+					, cache: false
+                    , success: function(res) {
+                        alert(res);
+                    }
+					,error: function(json, status){
+						alert("Error JSON Data: " + json);
+					 }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

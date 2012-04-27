@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Json Test</title>
+<!--
+<SCRIPT src="jquery.js"></SCRIPT> 
+<SCRIPT src="jquery.json.js"></SCRIPT> 
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js "></script>
+<script>
+	$(document).ready(function(){
+	  var data = new Object();
+	  data.hello = "Hello";
+	  data.world = 'World';
+	  data.worked = " it worked ";
+	  data.somebool = true;
+	  data.array = new Array("he\"ll\"o", '"World"');
+	  var jsonData = JSON.parse(data);
+	  //var dataString = $.toJSON(data);
+	  $.post('http://www.jak95.ru/fm/phpfile.php', {data: dataString}, function(res){
+		var obj = $.evalJSON(res);
+		if(obj.somebool === true)
+		  $("#result").html(obj.hello + ' ' + obj.array[1] + obj.worked + ". Message from PHP: "+obj.php_message);
+	  });
+	});
+</script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>

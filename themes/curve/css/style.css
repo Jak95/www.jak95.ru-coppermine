@@ -1,0 +1,191 @@
+/* основной скелет */
+body{
+  margin: 0;
+  background: url(../img/header-bg.png) repeat-x top center;
+  font-size: 100%;
+}	
+
+.header{
+    margin: 0 0 30px;
+    position: relative;
+    background-image: url(../img/snow3.png), url(../img/snow2.png);
+	-webkit-animation: snow 20s linear infinite;
+	-moz-animation: snow 20s linear infinite;
+	animation: snow 20s linear infinite;
+}
+
+.layer-snow{
+	background-image: url(../img/snow.png);
+	-webkit-animation: snow-layer 30s linear infinite;
+	-moz-animation: snow-layer 30s linear infinite;
+	animation: snow-layer 30s linear infinite;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 315px;
+}
+
+.wrapper{
+    width: 960px;
+	height: 315px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	background: url(../img/wrapper-bg.png) no-repeat bottom;
+}	
+
+/* анимация заднего фона снегопада */
+@-webkit-keyframes snow {
+ 0% {background-position: 0px 0px, 0px 0px;}
+ 100% {background-position: 400px 400px, 300px 300px;}
+}
+
+@-moz-keyframes snow {
+ 0% {background-position: 0px 0px, 0px 0px;}
+ 100% {background-position: 400px 400px, 300px 300px;}
+}
+
+@keyframes snow {
+ 0% {background-position: 0px 0px, 0px 0px;}
+ 100% {background-position: 400px 400px, 300px 300px;}
+}
+
+/* анимация переднего фона снегопада */
+@-webkit-keyframes snow-layer {
+ 0% {background-position: 0px 0px;}
+ 100% {background-position: 500px 1000px;}
+}
+
+@-moz-keyframes snow-layer {
+ 0% {background-position: 0px 0px;}
+ 100% {background-position: 500px 1000px;}
+}
+
+@keyframes snow-layer {
+ 0% {background-position: 0px 0px;}
+ 100% {background-position: 500px 1000px;}
+}
+
+/* анимация падегния елок и снеговика */
+@-moz-keyframes animate-drop {
+	0% {opacity:0;-moz-transform: translate(0, -315px);}
+	100% {opacity:1;-moz-transform: translate(0, 0);}
+}
+
+@-webkit-keyframes animate-drop {
+   
+	0% {opacity:0;-webkit-transform: translate(0, -315px);}
+	100% {opacity:1;-webkit-transform: translate(0, 0);}
+}
+
+@keyframes animate-drop {
+   
+	0% {opacity:0;transform: translate(0, -315px);}
+	100% {opacity:1;transform: translate(0, 0);}
+}  	
+
+/* объекты в баннере */
+.christmas-tree, .snowman {
+	position: absolute;
+    -moz-animation: animate-drop 1s linear;
+	-webkit-animation: animate-drop 1s linear;
+	animation: animate-drop 1s linear;
+}
+
+.christmas-tree {
+	width: 122px;
+	height: 137px;
+	background: url(../img/christmas-tree.png);
+}
+
+.snowman {
+	width: 78px;
+	height: 105px;
+	top: 195px;
+    left: 445px;
+	background: url(../img/snowman.png);
+	-moz-animation-duration: .6s;
+	-webkit-animation-duration: .6s;
+	animation-duration: .6s;
+}	
+    
+.tree1 {
+    top: 165px;
+    left: 35px;
+	-moz-animation-duration: .6s;
+	-webkit-animation-duration: .6s;
+	animation-duration: .6s;		
+}
+
+.tree2 {
+    left: 185px;
+    top: 175px;	
+	-moz-animation-duration: .9s;
+	-webkit-animation-duration: .9s;
+	animation-duration: .9s;		
+}
+
+.tree3 {
+    left: 340px;
+    top: 125px;	
+	-moz-animation-duration: .7s;
+	-webkit-animation-duration: .7s;
+	animation-duration: .7s;		
+}
+
+.tree4 {
+    left: 575px;
+    top: 175px;	
+	-moz-animation-duration: .8s;
+	-webkit-animation-duration: .8s;
+	animation-duration: .8s;		
+}
+
+.tree5 {
+    left: 710px;
+    top: 170px;	
+	-moz-animation-duration: .7s;
+	-webkit-animation-duration: .7s;
+	animation-duration: .7s;		
+}
+
+.tree6 {
+    left: 845px;
+    top: 125px;	
+	-moz-animation-duration: .6s;
+	-webkit-animation-duration: .6s;
+	animation-duration: .6s;		
+}
+
+/* прочее */
+.about {
+	text-align: center;
+	color: #777;
+	font: small Arial, Helvetica;
+}
+
+.about a {
+	color: #999;
+}
+
+.reload {
+	display: inline-block;
+	font: bold 1.2em Arial;
+	text-transform: uppercase;
+	margin: 10px;
+	padding: 10px 20px;
+	background: #ddd;
+	border-radius: 3px;
+}
+
+h1{
+	color: white;
+	text-align: center;
+	position: absolute;
+	top: 10px;
+	left: 0;
+	right: 0;
+	font-family: 'Marck Script', cursive;
+	font-size: 3em;
+}

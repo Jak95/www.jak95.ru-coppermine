@@ -1,0 +1,137 @@
+<?php
+
+/*
+	Google sitemap generator for PHP4.1+ and CPG 1.2+
+*/
+
+// use time of last comment on a pic as lastmod ? (if false then we just use pic's upload time (ie. db, not EXIF) which is cheaper)
+define('INC_COMMENT_TIMES', false);
+
+// dump the sitemap to a specified file (or generally anything accessible via fopen()), or false to output straight to user agent. 
+// Be aware that if you enable this and the output buffer exceeds php's memory limit and ini_set() fails the script will crash and burn.
+// Use a .gz or .xml.gz ending if you are making a compressed file.
+//define('FILEDUMP', 'sitemap.xml');
+define('FILEDUMP', can_cm_sitemap.xml);
+
+// use gzip compression ? disable if you have zlib output compression enabled
+// Zlib support in PHP is not enabled by default. You will need to configure PHP --with-zlib[=DIR]
+// The windows version of PHP has built in support for this extension. You do not need to load any additional extension in order to use these functions.
+// Note: Builtin support for zlib on Windows is available with PHP 4.3.0. 
+define('GZ_COMPRESS', false);
+
+// [0.0 <= priority <= 1.0]
+define('P_DISPLAYIMAGE', 0.5);
+define('P_ALBUM', 0.5);
+define('P_CATEGORY', 0.5);
+
+// [changefreq = always || hourly || daily || weekly || monthly || yearly || never]
+define('CF_DISPLAYIMAGE', 'unspecified');
+define('CF_ALBUM', 'unspecified');
+define('CF_CATEGORY', 'unspecified');
+
+define('IN_COPPERMINE', true);
+require('include/init.inc.php');
+
+// This should work as it is, but hardcode if necessary.
+define('CPG14', version_compare(COPPERMINE_VERSION, "1.4.0", ">="));
+define('PHP5', version_compare(phpversion(), "5", ">="));
+
+// No user servicable parts below here
+
+function lmdate($timestamp)
+{
+	if (PHP5){
+		return date('c', $timestamp);
+	} else {
+		return date('Y-m-d\TH:i:s+00:00', $timestamp - date('Z'));
+	}
+}
+
+$base = rtrim($CONFIG['ecards_more_pic_target'], '/');
+
+if (FILEDUMP){
+	@ini_set('memory_limit', '32M');
+	ob_start();
+} else {
+	header('Content-type: text/xml');
+}
+
+if (GZ_COMPRESS){
+	@ini_set('memory_limit', '32M');
+	if (!FILEDUMP) ob_start("ob_gzhandler");
+}
+
+echo '<?xml version="1.0" encoding="UTF-8"?>';
+echo '<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">';
+
+$cats = mysql_query("SELECT cid FROM {$CONFIG['TABLE_CATEGORIES']}");
+
+$pass = CPG14 ? "AND (ISNULL(alb_password) OR alb_password = '')" : '';
+
+echo '<url>';
+echo "<loc>$base</loc>";
+echo "<priority>1.0</priority>";
+echo '</url>';
+	
+while(list($cid) = mysql_fetch_row($cats))
+{
+	echo '<url>';
+	echo "<loc>$base/index.php?cat=0</loc>";
+	if (CF_CATEGORY != 'unspecified') echo '<changefreq>'.CF_CATEGORY.'</changefreq>';
+	if (P_CATEGORY != '0.5') echo '<priority>'.P_CATEGORY.'</priority>';
+	echo '</url>';
+	
+	$albs = mysql_query("SELECT a.aid, MAX(ctime) FROM {$CONFIG['TABLE_ALBUMS']} AS a INNER JOIN {$CONFIG['TABLE_PICTURES']} AS p ON p.aid = a.aid WHERE visibility = 0 $pass GROUP BY a.aid");
+	while(list($aid, $lastmod) = mysql_fetch_row($albs))
+	{
+		echo '<url>';
+		echo "<loc>$base/thumbnails.php?album=$aid</loc>";
+		echo '<lastmod>'.lmdate($lastmod).'</lastmod>';
+		if (CF_ALBUM != 'unspecified') echo '<changefreq>'.CF_ALBUM.'</changefreq>';
+		if (P_ALBUM != '0.5') echo '<priority>'.P_ALBUM.'</priority>';
+		echo '</url>';
+	
+		$pics = mysql_query("SELECT pid, ctime FROM {$CONFIG['TABLE_ALBUMS']} AS a INNER JOIN {$CONFIG['TABLE_PICTURES']} AS p ON p.aid = a.aid WHERE p.aid = '$aid'");
+	
+//echo 'count=';//.count($pics);
+
+		while(list($pid, $lastmod) = mysql_fetch_row($pics))
+		{
+			if (INC_COMMENT_TIMES){
+				$com = mysql_query("SELECT UNIX_TIMESTAMP(MAX(msg_date)) FROM {$CONFIG['TABLE_COMMENTS']} AS c INNER JOIN {$CONFIG['TABLE_PICTURES']} AS p ON p.pid = c.pid WHERE p.pid = '$pid' GROUP BY p.pid");
+				if (mysql_num_rows($com)) list($lastmod) = mysql_fetch_row($com);
+				mysql_free_result($com);
+			}
+			echo '<url>';
+			echo "<loc>$base/displayimage.php?pos=-$pid</loc>";
+			echo '<lastmod>'.lmdate($lastmod).'</lastmod>';
+			if (CF_DISPLAYIMAGE != 'unspecified') echo '<changefreq>'.CF_DISPLAYIMAGE.'</changefreq>';
+			if (P_DISPLAYIMAGE != '0.5') echo '<priority>'.P_DISPLAYIMAGE.'</priority>';
+			echo '</url>';
+		}
+	}	
+}
+echo '</urlset>';
+
+if (FILEDUMP){
+	if (GZ_COMPRESS){
+		if ($zp = gzopen(FILEDUMP, "w9")){
+			gzwrite($zp, ob_get_contents());
+			ob_end_clean();
+			gzclose($zp);
+			die('Completed, compressed and dumped to ' . FILEDUMP);
+		} else {
+			die('Failed to create compressed output file [' . FILEDUMP . '] check dir permissions and verify gzip capability');
+		}
+	} else {
+		if ($fp = fopen(FILEDUMP, 'w')){
+			fwrite($fp, ob_get_contents(), ob_get_length());
+			ob_end_clean();
+			fclose($fp);
+			die('Completed, and dumped to ' . FILEDUMP);
+		} else {
+			die('Failed to create output file [' . FILEDUMP . '] check dir permissions or create and chmod the file for me');
+		}
+	}
+}
+if (GZ_COMPRESS) ob_end_flush();

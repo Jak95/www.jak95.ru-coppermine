@@ -1,0 +1,19 @@
+*********************************************
+  Coppermine 1.5.x Plugin - External tracker
+*********************************************
+   Copyright (c) 2009 - 2010 papukaija
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License version 3
+  as published by the Free Software Foundation.
+
+**********************************************
+  $HeadURL$
+  $Revision$
+**********************************************
+  
+- Move the explanation for config screen's Extra setting from README.txt to 
+  help_xx.php (where xx is a lang code) which is displayed from plugin_config.php throught the help icon 
+  link (jquery)
+
+- Database optimisations in schema.sql ?

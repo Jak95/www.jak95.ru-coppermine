@@ -1,0 +1,119 @@
+/*******************************************************
+  Coppermine 1.5.x Plugin - LightBox (NotesFor.net)
+  ******************************************************
+  Copyright (c) 2009-2010 Joe Carver and Helori Lamberty
+  ******************************************************
+  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/branches/cpg1.5.x/plugins/lightbox_notes_for_net/changelog.txt $
+  $Revision: 7123 $
+  $LastChangedBy: gaugau $
+  $Date: 2010-01-25 08:38:55 +0100 (Mo, 25 Jan 2010) $
+  *****************************************************/
+  
+Changelog
+=========
+[A] = Added new feature
+[B] = Bugfix (fix something that wasn't working as expected)
+[C] = Cosmetical fix (layout, typo etc.)
+[D] = Documentation improvements
+[M] = Maintenance works
+[O] = Optimization of code
+[S] = Security fix (issues that are related to security)
+*********************************************
+2010-06-21 [M] Counted version up from 3.0 to 3.1 {Joe Carver}
+2010-06-21 [B] fix counter bug script.js {Joe Carver}
+2010-06-13 [M] Counted version up from 2.9 to 3.0 {Joe Carver}
+2010-06-13 [A] add config. option to show download link to guest, user or none {Joe Carver}
+2010-06-13 [A] add config. option to disable image resizinng {Joe Carver}
+2010-04-11 [M] Counted version up from 2.8 to 2.9 {Joe Carver}
+2010-04-11 [B] codebase.php change addition of head html {Joe Carver}
+2010-04-10 [M] Counted version up from 2.7 to 2.8 {Joe Carver}
+2010-04-10 [A] codebase.php change to add user view f/s access permissions {Joe Carver}
+2010-03-15 [M] Counted version up from 2.6 to 2.7 {Joe Carver}
+2010-03-15 [A] codebase.php add anchors to $picpage {Joe Carver}
+2010-03-15 [O] codebase.php change script call for older IE {Joe Carver}
+2010-03-15 [O] style.css change/remove size defs. for lightbox-container-image-box (Joe Carver}
+2010-03-15 [B] script.js remove extra comma line 206 {Joe Carver}
+2010-03-15 [B] english.htm change image and path for anchor {Joe Carver}
+2010-03-15 [O] admin.php remove commented/uneeded code {Joe Carver}
+2010-03-15 [M] lightbox.init.php removed {Joe Carver}
+2010-02-17 [M] Counted version up from 2.5 to 2.6 {Joe Carver}
+2010-02-17 [O] codebase.php change method of plugin data to <head> {Joe Carver}
+2010-02-17 [O] codebase.php change script call/location to page body {Joe Carver}
+2010-01-25 [M] Counted version up from 2.4 to 2.5 {GauGau}
+2010-01-25 [M] Re-added SVN header data {GauGau}
+2010-01-25 [O] Changed stylesheet layout {GauGau}
+2010-01-24 [M] Counted version up from 2.3 to 2.4 {Joe Carver}
+2010-01-24 [O] configuration.php add version check array {Joe Carver}
+2010-01-24 [C] remove info. fom svn fields {Joe Carver}
+2010-01-12 [M] Counted version up from 2.2 to 2.3 {Joe Carver}
+2010-01-12 [A] scripts.js add fadeTo function to image container {Joe Carver}
+2010-01-12 [A] scripts.js add fadeIn function to image {Joe Carver}
+2010-01-12 [A] scripts.js add option to select no animation {Joe Carver}
+2010-01-12 [A] scripts.js add option to select no curved corners {Joe Carver}
+2010-01-12 [O] scripts.js change sequence of nav. and caption {Joe Carver}
+2010-01-12 [O] scripts.js re-enable slideshow interval as config - required as part of this plugin {Joe Carver}
+2010-01-12 [M] codebase.php plugin buttons selected as default {Joe Carver}
+2010-01-12 [A] codebase.php add new options to variables list and db {Joe Carver}
+2010-01-12 [O] codebase.php add script command and .css to page <head> {Joe Carver}
+2010-01-12 [B] codebase.php change path for cpg image set {Joe Carver}
+2010-01-12 [C] style.css change button location {Joe Carver}
+2010-01-12 [O] style.css change container div for caption {Joe Carver}
+2010-01-12 [A] german.php add new lang. strings (need trranslation) {Joe Carver}
+2010-01-12 [A] english.php add new lang. strings {Joe Carver}
+2010-01-12 [B] admin.php re-enable slideshow interval as config. {Joe Carver}
+2010-01-12 [A] admin.php add nw config options {Joe Carver}
+2010-01-12 [C] admin.php change layout/sequence of selections {Joe Carver}
+2010-01-12 [O] admin.js change count interval for spin buttons {Joe Carver}
+2010-01-12 [A] admin.js add buttons for new options {Joe Carver}
+2010-01-02 [M] Counted version up from 2.1 to 2.2 {GauGau}
+2010-01-02 [A] Added option to select button sets {GauGau}
+2010-01-02 [O] Removed nofollow option (links to JS-driven content mustn't be spidered) {GauGau}
+2010-01-02 [A] Added spinbutton to admin screen {GauGau}
+2010-01-02 [A] Added i18n of JavaScript parts {GauGau}
+2010-01-02 [O] Removed option slideshow interval (such an option already exists in coppermine's core and subsequently doesn't make sense to configure independantly) {GauGau}
+2010-01-02 [B] Cleaned up page_meta call {GauGau}
+2010-01-02 [M] Updated header information to reflect new year {GauGau}
+2010-01-02 [A] Added icons to plugin buttons {GauGau}
+2010-01-01 [M] Counted version up from 2.0 to 2.1 {GauGau}
+2010-01-01 [A] Added classes to select tags on admin screen {GauGau}
+2010-01-01 [A] Added alternating lines to admin screen {GauGau}
+2010-01-01 [A] Added i18n to admin screen {GauGau}
+2009-12-31 [C] Cleaned up table construct for admin page (HTML-conformity!) {GauGau}
+2009-12-31 [C] Removed unneeded <hr>-tag {GauGau}
+2009-12-31 [C] Fixing code flaw in admin.php (starttable needs endtable!) {GauGau}
+2009-12-31 [C] Fixing nesting for form tag {GauGau}
+2009-12-31 [C] Fixing indentation of PHP code for admin screen {GauGau}
+2009-12-31 [M] Counted version up from 1.1 to 2.0 {GauGau}
+2009-12-31 [A] Added i18n for plugin configuration screen {GauGau}
+2009-12-31 [B] Fixed uninstall routine {GauGau}
+2009-12-31 [M] Removed unneeded files {GauGau}
+2009-12-31 [D] Added documentation {GauGau}
+2009-12-31 [M] Added file headers {GauGau}
+2009-12-31 [M] Added svn keywords to non-binary files {GauGau}
+2009-12-31 [M] Added plugin to SVN repository {GauGau}
+2009-12-31 [M] Renamed plugin folder {GauGau}
+2009-12-31 [M] Moved files around {GauGau}
+2009-12-27 [M] Release Version 1.0 {Joe Carver}
+2009-12-27 [A] Added configuration page to plugin package {Joe Carver}
+2009-12-27 [A] Visual timer can now be set on/off (to save CPU) {Joe Carver}
+2009-12-27 [A] Added "nofollow" attribute - configurable {Joe Carver}
+2009-12-27 [A] Added captions, border, timers, etc. to config {Joe Carver}
+2009-12-27 [A] Major .css and style changes {Joe Carver}
+2009-12-27 [A] Tweaks, cleanups for more efficient operation {Joe Carver}
+2009-12-27 [D] Added detailed instructions for Config in on-line readme file {Joe Carver}
+2009-12-20 [M] Release Version 0.3 {Joe Carver}
+2009-12-20 [A] Added hit counter function - (borrowed from EnlargeIt!) {Joe Carver}
+2009-12-20 [A] Meta album set maintained for LightBox image set {Joe Carver}
+2009-12-20 [M] Release Version 0.2 {Joe Carver}
+2009-12-20 [B] JavaScript fix bug in escape key function	 {Joe Carver}
+2009-12-20 [B] JavaScript enable/fix click overlay to close	 {Joe Carver}
+2009-12-20 [A] JavaScript added function - return to last image	 {Joe Carver}
+2009-12-20 [A] JavaScript added function - show image caption	 {Joe Carver}
+2009-12-20 [A] JavaScript page - added function resize image to screen	 {Joe Carver}
+2009-12-20 [O] JavaScript remove uneeded code	 {Joe Carver}
+2009-12-20 [A] Nav. images edited for contrast	 {Joe Carver}
+2009-12-20 [A] Added image caption	 {Joe Carver}
+2009-12-20 [A] Added a few JavaScript variables to <head>	 {Joe Carver}
+2009-12-20 [O] Small CSS edits	 {Joe Carver}
+2009-12-20 [D] Add readme to plugin package	 {Joe Carver}
+2009-12-17 [M] Release Version 0.1 for Coppermine 1.5.x	 {Joe Carver}

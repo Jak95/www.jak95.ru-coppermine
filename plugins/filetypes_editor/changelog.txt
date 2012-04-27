@@ -1,0 +1,36 @@
+/**************************************************
+  Coppermine 1.5.x Plugin - filetypes_editor
+  *************************************************
+  Copyright (c) 2009 Nibbler
+  *************************************************
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or
+  (at your option) any later version.
+  ********************************************
+  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/branches/cpg1.5.x/plugins/filetypes_editor/changelog.txt $
+  $Revision: 7125 $
+  $LastChangedBy: gaugau $
+  $Date: 2010-01-25 18:03:41 +0100 (Mo, 25 Jan 2010) $
+  **************************************************/
+
+Changelog
+=========
+[A] = Added new feature
+[B] = Bugfix (fix something that wasn't working as expected)
+[C] = Cosmetical fix (layout, typo etc.)
+[D] = Documentation improvements
+[M] = Maintenance works
+[O] = Optimization of code
+[S] = Security fix (issues that are related to security)
+*********************************************
+
+2009-06-09 [B] Added support for HTML5 <video> and <audio> tags {Nibbler}
+2009-06-06 [B] Fixed problems when editing file types that were not allowed in config {Nibbler}
+2009-06-05 [A] Added German translation {GauGau}
+2009-06-05 [A] Added i18n {GauGau}
+2009-06-05 [A] Added row alternation {GauGau}
+2009-06-05 [A] Added cancel button {GauGau}
+2009-06-05 [A] Added icons {GauGau}
+2009-06-05 [A] Counted version up {GauGau}
+2009-06-05 [M] Ported to be used with cpg1.5.x (replacing reference to globals with inspektified expressions) {GauGau}

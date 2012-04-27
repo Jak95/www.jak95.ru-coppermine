@@ -1,0 +1,132 @@
+a:link {
+	color: #8CFFE9; /*#0000d0; Цвет ссылок */
+	padding: 2px; /* Поля вокруг текста */ 
+}
+a:hover {
+	background: #786b59; /* Цвет фона под ссылкой */ 
+	color: #ffe; /* Цвет ссылки */ 
+} 
+   
+h1 a:link, h1 a:visited {
+	color: #046BCA;
+}
+
+h1 a:hover, h1 a:focus, h1 a:active {
+	color: #1C417C;
+}
+
+div#header {
+	height: 65px;
+	width: 1090px;
+	padding: 25px 0 10px 0;
+	margin: 0 50px;
+}
+div#header h1 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	font-weight: 600;
+}
+form {
+	background-color: #f3f3f3;
+	background-color: rgba(243,243,243,.333);
+	border: 1px solid #ddd;
+	border-color: rgba(221,221,221,.333);
+	border-radius:         8px;
+	-moz-border-radius:    8px;
+	-ms-border-radius:     8px;
+	-o-border-radius:      8px;
+	-webkit-border-radius: 8px;
+
+	float: right;
+	padding: 8px 10px;
+
+	width: auto;
+}
+form select {
+	font-size: 13px;
+	line-height: 13px;
+}
+div h1 span {
+	color: inherit;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 30px;
+	padding-left: 25px;
+}
+
+select{
+    font-size:11px;
+}
+.image-tip{
+    padding:4px;
+    height:98px;
+    white-space:nowrap;
+}
+.image-tip img {
+    margin-right:10px;
+    border:2px solid #083772;
+}
+.image-tip b{
+    color: #083772;
+    display: block;
+    margin-bottom: 4px;
+}
+.image-tip span{
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+.x-image-view{
+    font: 11px Arial, Helvetica, sans-serif;
+	background: none repeat scroll 0 0 grey;
+}
+.x-image-view .thumb{
+    padding:3px;
+}
+
+.x-image-view .thumb-wrap{
+    float: left;
+    margin: 4px;
+    margin-right: 0;
+    padding: 5px;
+}
+.x-image-view .thumb-wrap span{
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    width: 128px; // for ie to ensure that the text is centered
+}
+.x-image-view .x-item-selected .thumb {
+	background: #3D3838;
+    /*background:#8db2e3;*/
+}
+.x-image-view .loading-indicator {
+    font-size:8pt;
+    background-image:url(../../resources/images/default/grid/loading.gif);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left:20px;
+    margin:10px;
+}
+.x-dd-drag-proxy .multi-proxy .thumb-img{
+    height: 20px;
+    width: 30px;
+    margin:1px;
+}
+.x-dd-drag-proxy .thumb-img{
+    height: 60px;
+    width: 80px;
+}
+.image-node .x-tree-node-icon{
+    margin-bottom:1px;
+    height:15px;
+}
+.album-node .x-tree-node-icon, .album-btn{
+    background-image:url( album.gif ) !important;
+}
+
+.x-dataview-draggable-ghost img {
+    width: 20px;
+    margin: 0 5px 5px 0;
+}

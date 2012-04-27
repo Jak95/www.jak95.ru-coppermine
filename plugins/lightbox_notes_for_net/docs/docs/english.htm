@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<title>LightBox (NotesFor.net) v3.0 plugin for cpg1.5.x</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<meta name="copyright" content="Joachim Müller" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta http-equiv="imagetoolbar" content="no" />
+<!--
+  SVN version info:
+
+  Coppermine version: 1.5.3
+  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/branches/cpg1.5.x/plugins/enlargeit/docs/english.htm $
+  $Revision: 6883 $
+  $LastChangedBy: gaugau $
+  $Date: 2009-12-19 16:48:45 +0100 (Sa, 19. Dez 2009) $
+-->
+<link rel="stylesheet" type="text/css" href="../../../docs/style/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="../../../docs/style/screen.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../docs/style/print.css" media="print" />
+<link rel="shortcut icon" href="../../../favicon.ico" />
+<script src="../../../js/jquery-1.3.2.js" type="text/javascript"></script>
+<script src="../../../js/jquery.treeview.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+        $("#toclist").treeview({
+            collapsed: true,
+            animated: "medium",
+            control:"#sidetreecontrol"
+        });
+    });
+</script>
+</head>
+<body>
+<a name="header"></a><h1 id="docheader">LightBox (NotesFor.net) plugin for cpg1.5.x: Documentation<a href="#header" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h1>
+<a name="top"></a>
+
+<div id="toc">
+    LightBox (NotesFor.net) plugin for cpg1.5.x 
+    <ul id="toclist" class="tree">
+        <li><a href="#purpose">What's this?</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#uninstall">Uninstall</a></li>
+        <li><a href="#config">Configuration</a></li>
+        <li><a href="#credits">Credits</a></li>
+        <li><a href="#copyrights">Copyrights</a></li>
+        <li><a href="#todo">To do</a></li>
+    </ul>
+</div>
+
+<a name="purpose"></a><h2>What's this?<a href="#purpose" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h2>
+<p>This plugin will override the default popup that shows the fullsize picture and 
+will show a LightBox instead. Options to set include adding image captions, a "nofollow"
+attribute, border sizes and slideshow timing.</p>
+<p>It uses NFLightbox (see <a href="#credits">credits</a>) which has been modified for Coppermibe 1.5.x by Joe Carver. Snips from the Coppermine 1.4.x LightBox Slideshow have been used for some of the modifications. The plugin also depends on the jquery library built into cpg 1.5.x</p>
+
+<a name="install"></a><h2>Install<a href="#install" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h2>
+<p>This plugin is installed as any other plugin; there are no extra install steps, so besically you should do as suggested in the corresponding section of the documentation that comes with Coppermine.</p>
+
+<a name="uninstall"></a><h2>Uninstall<a href="#uninstall" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h2>
+<p>Uninstall via plugin manager</p>
+
+<a name="config"></a><h2>Configuration<a href="#config" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h2>
+<ol>
+    <li>
+        <a name="config_resize"></a><h3>Resize Images<a href="#config_resize" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Resize the images to fit in the visitor's browser window.<br />
+        Default is Yes - resize. Note: The full-sized image is always sent to the browser. This just sets resize.
+    </li>
+    <li>
+        <a name="config_show_download"></a><h3>Show a Download Link<a href="#config_show_download" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Show a link for visitors to download a copy of the full-size image. It will open the image in a new browser window.<br />
+        Options are OFF - Logged Users - On for all. Default is OFF - no download link.
+    </li>
+    <li>
+        <a name="config_timer_bar"></a><h3>Show slideshow timer bar<a href="#config_timer_bar" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Set visual slideshow timer bar. The plugin can show a counting timer for the slideshow. It can be CPU intensive and slow the pages for your visitors.<br />
+        Default is OFF - no timer bar.
+    </li>
+    <li>    
+        <a name="config_exit"></a><h3>On exit return to<a href="#config_exit" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Return on exit setting allows for the page to refresh with either the last or the first slide seen.<br />
+        Default is last slide.
+    </li>
+    <li>         
+        <a name="config_caption"></a><h3>Show image captions below titles <a href="#config_caption" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Show image captions - default is yes. Some users that have very long captions might want to use no/off. The captions will occupy screen space that the image can use.
+    </li>
+    <li>         
+        <a name="config_border"></a><h3>Border width<a href="#config_border" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Set width of border in pixels. Default is 8.
+    </li>
+    <li>         
+        <a name="config_alblist"></a><h3>Number of files in album to list for Slideshow<a href="#config_alblist" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Set number of files in album to list for Slideshow. Will limit the number of links/files in piclist (slideshow list) on each displayimage page. Large albums and/or galleries might want to limit the value. For example: "Lastup" from the home page leads to all links in a gallery. The corresponding displayimage.php page then would have all of those links listed for the LightBox.<br />
+        1 = All files in an album<br />
+        Large albums and galleries might want to limit to 500 or less<br />
+        Default is 1 (all files)
+    </li>
+    <li>         
+        <a name="config_buttonset"></a><h3>Button set<a href="#config_buttonset" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Determine if the buttons should come from the theme or if you want to use the buttons that come with the plugin.<br />
+        Possible options are:
+        <ul>
+            <li>
+                <h4>Use buttons from theme</h4>
+                If your theme comes with a custom set of navbar buttons, they will be used. If not, the default navbar icons will be used: 
+                <img src="../../../images/icons/left.png" border="0" width="16" height="16" alt="" class="icon" />
+                <img src="../../../images/icons/right.png" border="0" width="16" height="16" alt="" class="icon" />
+                <img src="../../../images/icons/close.png" border="0" width="16" height="16" alt="" class="icon" />
+                <img src="../../../images/icons/slideshow.png" border="0" width="16" height="16" alt="" class="icon" />
+                <img src="../../../images/icons/cancel.png" border="0" width="16" height="16" alt="" class="icon" />
+                <img src="../../../images/loader.gif" border="0" width="16" height="16" alt="" class="icon" />
+            </li>
+            <li>
+                <h4>Use buttons that come with this plugin</h4>
+                The original jquery plugin from NotesFor.net comes with a set of buttons:
+                <img src="../images/btm_dl.gif" border="0" width="16" height="16" alt="" class="icon" />
+                <img src="../images/btm_max.gif" border="0" width="16" height="16" alt="" class="icon" />
+                <img src="../images/btm_next.gif" border="0" width="16" height="16" alt="" class="icon" />
+                <img src="../images/btm_prev.gif" border="0" width="16" height="16" alt="" class="icon" />
+                <img src="../images/back_bot.png" border="0" width="32" height="32" alt="" class="icon" />
+                <img src="../images/close.png" border="0" width="32" height="32" alt="" class="icon" />
+                <img src="../images/pause.png" border="0" width="32" height="32" alt="" class="icon" />
+                <img src="../images/start.png" border="0" width="32" height="32" alt="" class="icon" />
+                <img src="../images/prev.png" border="0" width="43" height="43" alt="" class="icon" />
+                <img src="../images/next.png" border="0" width="43" height="43" alt="" class="icon" />
+                <img src="../images/loading.gif" border="0" width="32" height="32" alt="" class="icon" />
+            </li>
+        </ul>
+    </li>
+	<li>         
+        <a name="config_corner"></a><h3>Rounded corners<a href="#config_corner" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Show/add rounded corners to image container. No corners will use less cpu for vistors and show smoother
+		transitions.<br />
+    </li>	
+    <li>         
+        <a name="config_fade"></a><h3>Hide resize<a href="#config_fade" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Hide resize animation - use fading for image change.<br />
+    </li>
+	    <li>         
+        <a name="config_timer"></a><h3>Slideshow timer<a href="#config_timer" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Slideshow timer interval - (integer). Note: Animation and fade times are subtracted from the slideshow timer. <br />
+    </li>
+    <li>         
+        <a name="config_swap"></a><h3>Image swap time<a href="#config_swap" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Container resize speed - (integer): specify the resize animation duration of container image. Set image swap time - set by millisecond. (1000 milliseconds = 1 second). Too fast will make image change unpleasant. Default is 820.<br />
+    </li>	
+	<li>         
+        <a name="config_fadein"></a><h3>Image fade in<a href="#config_fadein" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Fade in time for image into container - (integer).<br />
+    </li>
+    <li>         
+        <a name="config_fadeout"></a><h3>Container fade in/out<a href="#config_fadeout" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h3>
+        Fade out/in duration when hide animation is set to yes - (integer).<br />
+    </li>
+</ul>
+
+<a name="credits"></a><h2>Credits<a href="#credits" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h2>
+<ul>
+    <li>Plugin Written by Joe Carver 
+        <ul>
+            <li><a href="http://gallery.josephcarver.com/natural/" class="external" rel="external">Photography by Joe Carver: Nature</a></li>
+            <li><a href="http://i-imagine.net/artists/" class="external" rel="external">i-imagine.net: the free web gallery for visual artists</a></li>
+            <li><a href="http://photos-by.joe-carver.com/" class="external" rel="external">Photography by Joe Carver</a></li>
+        </ul>
+    </li>
+    <li>jeepguy_1980 for LightBox plugin code</li>
+    <li>Sander Weyens for LightBox.js mods and Coppermine mod.</li>
+    <li><a href="http://notesfor.net/" rel="external" class="external">Helori Lamberty</a> for NFLightBox</li>
+    <li>Timo Schewe for the counter script taken from the EnlargeIt! plugin</li>
+</ul>
+
+<a name="copyrights"></a><h2>Copyrights<a href="#copyrights" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h2>
+This plugin is using the Lightbox script created by Helori Lamberty that can be used freely as long as the following copyright notice is being shipped with it:
+<div class="border1">
+    <p>Copyright (c) 2009, Helori LAMBERTY<br />                                    
+    All rights reserved.</p>                                                   
+                                                                           
+    <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>                                                               
+    <ul>                                                                       
+        <li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+        <li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>                                                          
+        <li>Neither the name of NotesFor.net nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>             
+    </ul>                                                                      
+    <p>This software is provided by the copyright holders and contributors "as is" and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the copyright owner or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.</p>                                                                
+</div>
+
+<a name="todo"></a><h2>To do<a href="#todo" title="Link to this section"><img src="../../../images/link.gif" width="15" height="9" border="0" alt="" /></a></h2>
+<ul>
+    <li></li>
+</ul>
+
+
+
+<div id="doc_footer">
+	<div class="doc_info_wrapper">
+		<span id="doc_last_changed">$LastChangedDate: 2010-06-13</span>
+		<span id="doc_revision">$Revision: 6883 $</span>
+	</div>
+</div>
+</body>
+</html>

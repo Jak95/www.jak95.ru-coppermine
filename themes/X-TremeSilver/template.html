@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="{LANG_DIR}">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>{TITLE}</title>
+{META}
+<link rel="stylesheet" href="themes/X-TremeSilver/style.css" />
+<link rel="stylesheet" href="themes/X-TremeSilver/stylesheet.css" />
+<link rel="shortcut icon" href="favicon.ico" />
+{JAVASCRIPT}
+<!--
+  SVN version info:
+  Coppermine version: 1.5.12
+  $Revision$ 1.0
+  $LastChangedBy$ DaMysterious
+  $Date$ 12-03-2011
+-->
+
+<!--[if lt IE 7]>
+<script language="JavaScript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+   var arVersion = navigator.appVersion.split("MSIE")
+   var version = parseFloat(arVersion[1])
+   if ((version >= 5.5) && (document.body.filters)) 
+   {
+      for(var i=0; i<document.images.length; i++)
+      {
+         var img = document.images[i]
+         var imgName = img.src.toUpperCase()
+         if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+         {
+            var imgID = (img.id) ? "id='" + img.id + "' " : ""
+            var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+            var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+            var imgStyle = "display:inline-block;" + img.style.cssText 
+            if (img.align == "left") imgStyle = "float:left;" + imgStyle
+            if (img.align == "right") imgStyle = "float:right;" + imgStyle
+            if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+            var strNewHTML = "<span " + imgID + imgClass + imgTitle
+            + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+            + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+            + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+            img.outerHTML = strNewHTML
+            i = i-1
+         }
+      }
+   }    
+}
+window.attachEvent("onload", correctPNG);
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+// <![CDATA[
+// copyright 1999 Idocs, Inc. http://www.idocs.com/tags/
+// Distribute this script freely, but please keep this
+// notice with the code.
+
+var rollOverArr=new Array();
+function setrollover(OverImgSrc,pageImageName)
+{
+if (! document.images)return;
+if (pageImageName == null)
+pageImageName = document.images[document.images.length-1].name;
+rollOverArr[pageImageName]=new Object;
+rollOverArr[pageImageName].overImg = new Image;
+rollOverArr[pageImageName].overImg.src=OverImgSrc;
+}
+
+function rollover(pageImageName)
+{
+if (! document.images)return;
+if (! rollOverArr[pageImageName])return;
+if (! rollOverArr[pageImageName].outImg)
+{
+rollOverArr[pageImageName].outImg = new Image;
+rollOverArr[pageImageName].outImg.src = document.images[pageImageName].src;
+}
+document.images[pageImageName].src=rollOverArr[pageImageName].overImg.src;
+}
+
+function rollout(pageImageName)
+{
+if (! document.images)return;
+if (! rollOverArr[pageImageName])return;
+document.images[pageImageName].src=rollOverArr[pageImageName].outImg.src;
+}
+// ]]>
+</script>
+
+</head>
+<body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0">
+<a name="top"></a> 
+  
+<div id="wrapheader">
+<table width="100%" cellspacing="0">
+  <tr>
+    <td align="center"><div align="center">{CUSTOM_HEADER}</div>
+</td>
+  </tr>
+</table>
+  
+<table id="bx" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+        <table style="height:40;" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><img src="themes/X-TremeSilver/images/header/h11.png" width="40" height="40" alt="" /></td>
+            <td><img src="themes/X-TremeSilver/images/header/h12.png" width="100" height="40" alt="" /></td>
+            <td style="background:url(themes/X-TremeSilver/images/header/h13.png) repeat;" width="100%" height="40"></td>
+            <td><img src="themes/X-TremeSilver/images/header/h14.png" width="100" height="40" alt="" /></td>
+            <td><img src="themes/X-TremeSilver/images/header/h15.png" width="40" height="40" alt="" /></td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+    <td>
+        <table style="height:140;" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><img src="themes/X-TremeSilver/images/header/h21.png" width="40" height="140" alt="" /></td>
+            <td><img src="themes/X-TremeSilver/images/header/h22.png" width="100" height="140" alt="" /></td>
+            <td style="background:url(themes/X-TremeSilver/images/header/h23.png) repeat;" width="100%" height="140">
+        
+                <div id="logodesc">
+                    <table width="100%" cellspacing="0">
+                        <tr>
+                            <td><a href="index.php"><img src="themes/X-TremeSilver/images/site_logo.png" border="0" alt="" /></a></td>
+                            <td width="100%" align="center"><!--<h1>{GAL_NAME}</h1><span class="gen">{GAL_DESCRIPTION}</span> --></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td><img src="themes/X-TremeSilver/images/header/h24.png" width="100" height="140" alt="" /></td>
+            <td><img src="themes/X-TremeSilver/images/header/h25.png" width="40" height="140" alt="" /></td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <table width="100%" style="height=66;" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><img src="themes/X-TremeSilver/images/header/h31.png" width="40" height="66" alt="" /></td>
+            <td><img src="themes/X-TremeSilver/images/header/h32.png" width="100" height="66" alt="" /></td>
+            <td style="background:url(themes/X-TremeSilver/images/header/h33.png);" width="33%" height="66" align="center">
+                <a href="index.php" onmouseover = "rollover('home')" onmouseout = "rollout('home')">
+                <img src="themes/X-TremeSilver/images/buttons/home1.png" name="home" alt="Home" border="0" height="40" width="101" /></a>
+                <script type="text/javascript">
+                <!--
+                setrollover("themes/X-TremeSilver/images/buttons/home2.png");
+                //-->
+                </script>
+            </td>
+            <td style="background:url(themes/X-TremeSilver/images/header/h33.png);" width="33%" height="66" align="center">
+                <a href="faq.php" onmouseover = "rollover('faq')" onmouseout = "rollout('faq')">
+                <img src="themes/X-TremeSilver/images/buttons/faq1.png" name="faq" alt="F.A.Q." border="0" height="40" width="101" /></a>
+                <script type="text/javascript">
+                <!--
+                setrollover("themes/X-TremeSilver/images/buttons/faq2.png");
+                //-->
+                </script>
+            </td>
+            <td style="background:url(themes/X-TremeSilver/images/header/h33.png);" width="33%" height="66" align="center">
+                    <a href="search.php" onmouseover = "rollover('search')" onmouseout = "rollout('search')">
+                    <img src="themes/X-TremeSilver/images/buttons/search1.png" name="search" alt="Search" border="0" height="40" width="101" /></a>
+                    <script type="text/javascript">
+                    <!--
+                    setrollover("themes/X-TremeSilver/images/buttons/search2.png");
+                    //-->
+                    </script>
+            </td>
+            <td style="background:url(themes/X-TremeSilver/images/header/h33.png);" width="20%" height="66" align="center"></td>
+            <td><img src="themes/X-TremeSilver/images/header/h34.png" width="100" height="66" alt="" /></td>
+            <td><img src="themes/X-TremeSilver/images/header/h35.png" width="40" height="66" alt="" /></td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+</table>
+</div>
+
+<div id="wrapcentre">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+    <td>
+        <table style="height=45;" border="0" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <td><img src="themes/X-TremeSilver/images/p_menu/p_01.png" width="61" height="45" alt="" /></td>
+            <td><img src="themes/X-TremeSilver/images/p_menu/cu_l.png" width="44" height="45" alt="" /></td>
+            <td style="background:url(themes/X-TremeSilver/images/p_menu/cu_m.png);" width="100%" height="45" align="center">
+                <h4>{GAL_NAME} ~ {GAL_DESCRIPTION}</h4>
+            </td>
+            <td><img src="themes/X-TremeSilver/images/p_menu/cu_r.png" width="45" height="45" alt="" /></td>
+            <td style="background:url(themes/X-TremeSilver/images/p_menu/p_02.png) repeat;" width="20%" height="45"></td>
+            <td><img src="themes/X-TremeSilver/images/p_menu/p_03.png" width="61" height="45" alt="" /></td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <table style="height:45" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><img src="themes/X-TremeSilver/images/p_menu/p_08.png" width="61" height="45" alt="" /></td>
+            <td style="background:url(themes/X-TremeSilver/images/p_menu/p_85.png);" width="100%" height="45">
+                <table width="100%" cellspacing="0">
+                    <tr>
+                        <td style="background:url(themes/X-TremeSilver/images/p_menu/p_85.png);" width="100%" height="36" align="center">
+                        {SYS_MENU} {SUB_MENU}</td>
+                    </tr>
+                </table>
+            </td>
+            <td><img src="themes/X-TremeSilver/images/p_menu/p_09.png" width="61" height="45" alt="" /></td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+    <td>
+        <table style="height:40;" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><img src="themes/X-TremeSilver/images/p_menu/p_10.png" width="61" height="40" alt="" /></td>
+            <td style="background:url(themes/X-TremeSilver/images/p_menu/p_11.png) repeat;" width="50%" height="40"></td>
+            <td style="background:url(themes/X-TremeSilver/images/p_menu/clock.png);" width="350" height="40">
+                <p class="gensmallclock" align="center">
+                    <script type="text/javascript" src="themes/X-TremeSilver/liveclock.js">
+                    </script>
+                </p>
+            </td>
+            <td style="background:url(themes/X-TremeSilver/images/p_menu/p_11.png) repeat;" width="20%" height="40"></td>
+            <td style="background:url(themes/X-TremeSilver/images/p_menu/p_11.png) repeat;" width="30%" height="40" align="right"></td>
+            <td><img src="themes/X-TremeSilver/images/p_menu/p_13.png" width="61" height="40" alt="" /></td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+</table>
+  
+<table cellspacing="0" cellpadding="0" width="100%" id="maintable" align="center">
+<tr>
+	<td valign="top">
+
+		<table width="100%" cellspacing="0">
+          <tr>
+            <td align="left" valign="top">
+              {ADMIN_MENU}
+            </td>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+              {GALLERY}
+            </td>
+          </tr>
+        </table>
+
+    </td>
+  </tr>
+</table>
+</div>
+                
+<table width="100%" style="height: 99px;" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+         <td><img src="themes/X-TremeSilver/images/footer/f_01.png" width="81" height="99" alt="" /></td>
+         <td style="background:url(themes/X-TremeSilver/images/footer/f_02.png) repeat;" width="100%" height="99"></td>
+         <td><img src="themes/X-TremeSilver/images/footer/f_03.png" width="82" height="99" alt="" /></td>
+	</tr>
+</table>
+
+<table width="100%" style="height: 89px;" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+         <td><img src="themes/X-TremeSilver/images/footer/f_10.png" width="81" height="89" alt="" /></td>
+         <td><img src="themes/X-TremeSilver/images/footer/f_11.png" width="170" height="89" alt="" /></td>
+         <td style="background:url(themes/X-TremeSilver/images/footer/f_12.png) repeat;" width="50%" height="89"></td>
+         <td width="120" height="89" background="themes/X-TremeSilver/images/footer/f_13.png" valign="top">
+            <div style="text-align: center; position: absolute; right: 200px; margin-top: -25px;">
+                {CREDITS} {THEME_CREDITS}
+            </div>
+          </td>
+         <td style="background:url(themes/X-TremeSilver/images/footer/f_12.png) repeat;" width="50%" height="89"></td>
+         <td><img src="themes/X-TremeSilver/images/footer/f_14.png" width="170" height="89" alt="" /></td>
+         <td><img src="themes/X-TremeSilver/images/footer/f_15.png" width="82" height="89" alt="" /></td>
+	</tr>
+</table>
+
+<table width="100%" cellspacing="0">
+   <tr>
+    <td align="center" valign="top">
+      <div align="center">{CUSTOM_FOOTER}</div>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

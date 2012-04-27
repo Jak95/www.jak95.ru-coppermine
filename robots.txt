@@ -1,0 +1,16 @@
+User-Agent: * 
+Host: www.jak95.ru
+Sitemap: www.jak95.ru/sitemap.xml
+Allow: /albums/Jak95/
+Allow: /*.php
+Disallow: /bridge/
+Disallow: /css/
+Disallow: /docs/
+Disallow: /images/
+Disallow: /include/
+Disallow: /js/
+Disallow: /lang/
+Disallow: /logs/
+Disallow: /plugins/
+Disallow: /sql/
+Disallow: /themes/
