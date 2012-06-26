@@ -152,8 +152,14 @@ body { font-family: Arial, Helvetica, sans-serif; }
 .button, .sortorder_options, .buttonlist ul li a { font-family: Arial, Helvetica, sans-serif; }
 
 
+.catrow td {
+	/*text-indent: 1.5em;*/
+	text-align: left;
+	padding: 3px 10px;
+}
+
 table {
-    font-size : 12px;
+    font-size : 100%;/*12px;*/
 }
 
 

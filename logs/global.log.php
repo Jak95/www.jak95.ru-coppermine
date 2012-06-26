@@ -17,7 +17,5 @@
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
-?>2012-04-25 13:49:15 - Garbage collection deleted logs/global.log.php
----
-2012-04-26 05:26:13 - Garbage collection deleted logs/security.log.php
+?>2012-06-25 17:38:45 - Garbage collection deleted logs/global.log.php
 ---

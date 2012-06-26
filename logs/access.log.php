@@ -17,11 +17,9 @@
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
-?>Апр 22, 2012 - 10:01 - The user Eugeny_Shcherbinin (user ID 2) logged in.
+?>Июнь 25, 2012 - 09:51 - The user Eugeny_Shcherbinin (user ID 2) logged in.
 ---
-Апр 23, 2012 - 09:54 - The user Eugeny_Shcherbinin (user ID 2) logged in.
+Июнь 25, 2012 - 10:17 - The user Eugeny_Shcherbinin (user ID 2) logged out.
 ---
-Апр 24, 2012 - 11:20 - The user Eugeny_Shcherbinin (user ID 2) logged in.
----
-Апр 25, 2012 - 17:41 - The user Eugeny_Shcherbinin (user ID 2) logged in.
+Июнь 25, 2012 - 10:20 - The user Eugeny_Shcherbinin (user ID 2) logged in.
 ---

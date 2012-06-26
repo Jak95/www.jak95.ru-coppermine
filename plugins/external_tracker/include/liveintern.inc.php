@@ -23,8 +23,8 @@ escape(document.referrer)+((typeof(screen)=="undefined")?"":
 ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
 screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 ";"+Math.random()+
-"' alt='' title='LiveInternet: показано число просмотров и"+
-" посетителей за 24 часа' "+
+"' alt='' title='LiveInternet: РїРѕРєР°Р·Р°РЅРѕ С‡РёСЃР»Рѕ РїСЂРѕСЃРјРѕС‚СЂРѕРІ Рё"+
+" РїРѕСЃРµС‚РёС‚РµР»РµР№ Р·Р° 24 С‡Р°СЃР°' "+
 "border='0' width='88' height='31'><\/a>")
 //--></script><!--/LiveInternet-->
 EOT;

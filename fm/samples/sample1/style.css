@@ -1,0 +1,67 @@
+		p, h1 {
+            text-align: justify; /* Выравнивание по ширине */
+            /*margin-left: 60px; /* Отступ слева в пикселах */
+			margin-right: 10px; /* Отступ справа в пикселах */
+			border-left: 1px solid #999; /* Параметры линии слева */
+			border-bottom: 1px solid #999; /* Параметры линии снизу */
+			padding-left: 10px; /* Отступ от линии слева до текста  */
+			padding-bottom: 10px; /* Отступ от линии снизу до текста  */
+		 }
+
+        {
+		 
+            font: 1em sans-serif;
+            font-family: Arial, sans-serif;
+            font-size: 1em;
+            font-weight: normal;
+            font-style: normal;
+            font-variant: normal;
+
+            position: static;
+            z-index: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            display: block;
+            visibility: hidden;
+            float: none;
+            clear: none;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+
+            box-sizing: content-box;
+            -moz-box-sizing: border-box;
+            width: auto;
+            min-width: 0;
+            max-width: 0;
+            height: auto;
+            min-height: 0;
+            max-height: 0;
+            margin: 0;
+            padding: 0;
+
+            table-layout: fixed;
+            empty-cells: show;
+            border-spacing: 0;
+            border-collapse: collapse;
+            list-style: none;
+
+            content: "";
+            cursor: default;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1;
+            white-space: normal;
+            text-decoration: none;
+            text-indent: 1;
+            text-transform: uppercase;
+            letter-spacing: 1;
+            word-spacing: normal;
+
+            opacity: 1;
+            color: red;
+            border: 1px solid red;
+            background: #fff url(../i/bg.png) no-repeat 0 0;
+        }

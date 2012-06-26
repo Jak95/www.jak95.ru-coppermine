@@ -21,7 +21,7 @@ require("include/init.inc.php");
 Header("content-type: application/x-javascript");
 
 $query = "SELECT 
-r.pid, r.`filepath`, r.`filename`, 
+r.pid, r.aid, r.`filepath`, r.`filename`, 
 r.title, r.ctime, ex.`exifData` AS exif
 FROM `cpg15_pictures` AS r
 LEFT OUTER JOIN `cpg15_exif` AS ex ON ex.pid = r.`pid`,
@@ -49,11 +49,13 @@ global $lang_date;
 
 while ( ($row = mysql_fetch_assoc($result)) ) {
 	$normalfilename = 'normal_' . $row[filename];
-	$href = $row[filename];
+	// $href = $row[filename];
 	$filepath = $row[filepath];
 	$pid = $row[pid];
+	$aid = $row[aid];
+	$href = 'http://www.jak95.ru/coppermine/displayimage.php?album='.$aid.'&pid='.$pid.'#top_display_media';
 	$fullname = $sitealbumpath.$filepath.$normalfilename;
-	$hrefname = $sitealbumpath.$filepath.$href;
+	//$hrefname = $sitealbumpath.$filepath.$href;
 	$title = $row[title];
 	$exif = unserialize($row[exif]);
 	
@@ -66,7 +68,7 @@ while ( ($row = mysql_fetch_assoc($result)) ) {
 	
 	//echo $fullname;
 	
-	$values = array($fullname, $hrefname, $title, $createtime);
+	$values = array($fullname, $href, $title, $createtime);
 	$subarray = array_combine($keyExtended, $values);
 	@array_push ($filenames, $subarray);
 }

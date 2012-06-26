@@ -42,7 +42,8 @@ define('PHP5', version_compare(phpversion(), "5", ">="));
 function lmdate($timestamp)
 {
 	if (PHP5){
-		return date('c', $timestamp);
+		//return date('c', $timestamp);
+		return date('c');
 	} else {
 		return date('Y-m-d\TH:i:s+00:00', $timestamp - date('Z'));
 	}
@@ -78,14 +79,25 @@ function writeurl_2($fp, $base, $cid)
 	return '';
 }
 
-function writeurl_3($fp, $base, $aid, $lastmod)
+function writeurl_3($fp, $base, $aid, $lastmod, $records)
 {
-	fputs($fp, '<url>');
-	fputs($fp, '<loc>'.$base.'/thumbnails.php?album='.$aid.'</loc>');
-	fputs($fp, '<lastmod>'.lmdate($lastmod).'</lastmod>');
-	if (CF_ALBUM != 'unspecified') fputs($fp, '<changefreq>'.CF_ALBUM.'</changefreq>');
-	if (P_ALBUM != '0.5') fputs($fp, '<priority>'.P_ALBUM.'</priority>');
-	fputs($fp, '</url>'.LINEBREAK);
+	global $CONFIG;
+	
+	$albums = floor($records / ($CONFIG['thumbcols'] * $CONFIG['thumbrows']));
+	echo '$records='.$records.' albums='.$albums.'</br>';
+	for ($i = 0; $i <= $albums; $i++) {
+		fputs($fp, '<url>');
+		if ($i == 0) {
+			fputs($fp, '<loc>'.$base.'/thumbnails.php?album='.$aid.'</loc>');
+		} else {
+			fputs($fp, '<loc>'.$base.'/thumbnails.php?album='.$aid.'&amp;page='.($i + 1).'</loc>');
+		}
+		fputs($fp, '<lastmod>'.lmdate(date()).'</lastmod>');
+		//fputs($fp, '<lastmod>'.lmdate($lastmod).'</lastmod>');
+		if (CF_ALBUM != 'unspecified') fputs($fp, '<changefreq>'.CF_ALBUM.'</changefreq>');
+		if (P_ALBUM != '0.5') fputs($fp, '<priority>'.P_ALBUM.'</priority>');
+		fputs($fp, '</url>'.LINEBREAK);	
+	}
 	return '';
 }
 	
@@ -93,7 +105,8 @@ function writeurl_4($fp, $base, $pid, $lastmod)
 {
 	fputs($fp, '<url>');
 	fputs($fp, '<loc>'.$base.'/displayimage.php?pos=-'.$pid.'</loc>');
-	fputs($fp, '<lastmod>'.lmdate($lastmod).'</lastmod>');
+	fputs($fp, '<lastmod>'.lmdate(date()).'</lastmod>');
+	//fputs($fp, '<lastmod>'.lmdate($lastmod).'</lastmod>');
 	if (CF_DISPLAYIMAGE != 'unspecified') fputs($fp, '<changefreq>'.CF_DISPLAYIMAGE.'</changefreq>');
 	if (P_DISPLAYIMAGE != '0.5') fputs($fp, '<priority>'.P_DISPLAYIMAGE.'</priority>');
 	fputs($fp, '</url>'.LINEBREAK);
@@ -143,16 +156,22 @@ $query = "SELECT a.aid, MAX(ctime) FROM {$CONFIG['TABLE_ALBUMS']} AS a
 	echo $query.'<br/>';
 	
 	$albs = cpg_db_query($query);
+	
 	while(list($aid, $lastmod) = mysql_fetch_row($albs))
 	{
-		writeurl_3($fp, $base, $aid, $lastmod);
-		$count = $count + 1;
-		
+	
 		$query = "SELECT pid, ctime FROM {$CONFIG['TABLE_ALBUMS']} 
 			AS a INNER JOIN {$CONFIG['TABLE_PICTURES']} AS p ON p.aid = a.aid WHERE p.aid = '$aid'";
 		echo $query.'<br/>';
 		
 		$pics = cpg_db_query($query);
+		
+		$records = mysql_num_rows($pics);
+		//echo 'records='.$records.'</br>';
+	
+		writeurl_3($fp, $base, $aid, $lastmod, $records);
+		$count = $count + 1;
+		
 	
 		while(list($pid, $lastmod) = mysql_fetch_row($pics))
 		{
@@ -183,7 +202,7 @@ $query = "SELECT a.aid, MAX(ctime) FROM {$CONFIG['TABLE_ALBUMS']} AS a
 				$count = $count + 1;
 				writeurl_2($fp, $base, $cid);
 				$count = $count + 1;
-				writeurl_3($fp, $base, $aid, $lastmod);
+				writeurl_3($fp, $base, $aid, $lastmod, $records);
 				$count = $count + 1;
 			}
 			
